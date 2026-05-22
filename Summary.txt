@@ -1,0 +1,14 @@
+
+Basic Skeleton 
+Data-Type
+Input/Ouput
+if else, nested if else
+switch case 
+for loop
+while loop 
+Arrays 
+Strings 
+functions 
+pass by value & reference x
+
+
