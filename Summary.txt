@@ -9,6 +9,7 @@ while loop
 Arrays 
 Strings 
 functions 
+parameterized functions 
 pass by value & reference x
 
 
