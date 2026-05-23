@@ -13,3 +13,18 @@ parameterized functions
 pass by value & reference 
 
 
+
+Summary
+We covered a lot in this article! Here is a recap:
+
+Skeleton: #include <iostream>, int main()
+Data Types: int, float, char, bool, string
+I/O: cin (input), cout (output)
+Decisions: if-else, switch
+Loops: for, while (to repeat output)
+Arrays: storing multiple values
+Functions: reusable code blocks
+Pass by Reference: using & to modify originals
+Next Steps:
+Don't just read. Type these examples. See them run. Break them. Fix them.
+That is the only way to learn C++.
