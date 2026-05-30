@@ -10,8 +10,6 @@ using namespace std;
 
 int main() {
 
-    int num;
-
     int num1 = 4;                                        // Hardcoded values 
     int num2 = 5;
     int num3 = 2;

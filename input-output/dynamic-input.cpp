@@ -9,7 +9,9 @@ using namespace std;
 
 int main() {
 
-    int num1, num2, num3, num4;
+    int num1, num2, num3, num4;                     // we are taking 4 variables here 
+
+                                                    // cout << "Enter 4 numbers: " << "\n";
 
     cin >> num1 >> num2 >> num3 >> num4;
 

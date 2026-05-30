@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
 
-  int bdate;
+  int bdate;                                        // Alter  int bdate, num;
   int num;
 
   cout << "Enter your DoB : ";
@@ -18,3 +18,6 @@ int main() {
     return 0;
 }
 
+
+
+// 2 variables- bdate and num 

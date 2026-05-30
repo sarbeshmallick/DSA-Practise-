@@ -1,6 +1,6 @@
 
 
-// Switch case - different format of writing if , when u what can be possible if-else conditions 
+// Switch case - different format of writing if , when u know what can be possible if-else conditions 
 
 // Given the day number, Print which day it is of week, assume week starts from Monday and ends on Sunday 
 

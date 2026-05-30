@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
 
-  int bdate; int num;
+  int bdate; float num;
 
   cout << "Enter your DoB : "; cin >> bdate; 
 
@@ -14,3 +14,14 @@ int main() {
     return 0;
 }
 
+ /* Input-
+ Enter your DoB : 22 
+ Enter a number : 7.85
+
+ Output- 
+ The DoB is : 22
+The number is : 7.85
+
+
+// to show we dont hv to write so many lines 
+*/

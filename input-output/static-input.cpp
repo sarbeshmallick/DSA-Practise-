@@ -10,8 +10,6 @@ using namespace std;
 
 int main() {
 
-    int num;
-
     int num1 = 4;                                        // Hardcoded values 
     int num2 = 5;
     int num3 = 2;
@@ -30,3 +28,5 @@ Output- 9 3
 
 
 */
+
+// when we harcode values we dont take input if we type cin then it will override our previous harcoded instructions 
