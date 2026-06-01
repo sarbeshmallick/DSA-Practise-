@@ -2,21 +2,9 @@
 
 // Problem Statement- Take 5 numbers from us and print them and store it in an Array 
 
+
 /*
-int main() {
-  int num[5];                                 // As we have intilizaed an empty array but haven't define elemnets it will output garbage elemnets 
-  for(int i = 0; i <= 4; i++) {               // Initally we call empty array but then define elements like if int num[3] = {2, 1, 7};
-    cout << num[i] << "\n";         
-  }        
-
-Output- 
--2
-6422280
-1996582701                                     // Garbage elements 
-4200944
-6422352
-
-*/ 
+Old code- 
 
 #include <iostream>
 using namespace std;
@@ -32,26 +20,13 @@ int main() {
     return 0;
 }
 
+which is fine but will be a problem when I need to process the array like finding the largest array 
 
+here i am doing 
+Input -> Print 
+Input -> Print
+Input -> Print 
 
-
-
-/*
-
-Output-    // if you type 1 2 3 4 5 it will print these number 
-1
-2
-3
-4
-5 
-
-*/
-
-
-/*
-
-TWO LOOP version- 
-- earlier we were just taking a input and printing it and again taking input and printing it 
 
 - we were doing->
 Input 1st number
@@ -108,7 +83,20 @@ and so on.
 
 So the array is being used as storage, but you're not really taking advantage of the fact that the values are already stored.
 
-code-
+
+*/
+
+
+
+
+
+// 2 Loop Version:- 
+
+
+# include<iostream>
+using namespace std;
+
+int main() {
 
 int num[5];
 
@@ -120,7 +108,16 @@ for(int i = 0; i < 5; i++) {
     cout << num[i] << "\n";
 }
 
+return 0; 
 
+}
+
+
+
+
+/*
+
+Two Loop system- 
 User enters- 10 20 30 40 50
 
 First Loop-
@@ -161,43 +158,6 @@ Traverse
 Process
 ↓
 Output
-*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-Note- 
-
-Because arrays start from index 0
-So 0 1 2 3 4 
-Total = 5 elements 
-
-Important Concept-
-
-int num[5];    // Creates 5 boxes 
-| Index | Value |
-| ----- | ----- |
-| 0     | ?     |
-| 1     | ?     |
-| 2     | ?     |
-| 3     | ?     |
-| 4     | ?     |
-
-When user enter values:
-it get stored inside--   cin >> num[i];        // user input gets stored in those boxes 
 
 */
