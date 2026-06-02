@@ -639,3 +639,156 @@ When user enter values:
 it get stored inside--   cin >> num[i];        // user input gets stored in those boxes
 
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+**Strings-**
+
+we use string instead of char because char allows single letter or single symbols and string allows multiple letters 
+char -> Stores one character
+string -> stores a sequece of characters 
+
+- Strings are basically  **Arrays of characters + extra functionality**
+
+Array:
+[10,20,30,40]
+
+String:
+['H','e','l','l','o']
+
+### Both have- 
+Indexing
+Traversal
+Length
+Access by position
+
+
+
+
+
+# cin vs getline()
+cin stops reading after space 
+
+Suppose, user enters Sarbesh Mallick as input 
+
+Using Cin ->
+```
+ string name;
+cin >> name;
+```
+
+Output stored in name: Sarbesh 
+
+not entire name- Sarbesh Mallick because 
+**Because cin stops reading when it encounters:**
+1. space
+2. tab
+3. newline
+
+So, Sarbesh Mallick
+        ^
+      stop here   , Mallick remains in the input buffer 
+
+
+### Using getline()
+```
+string name;
+getline(cin, name);
+```
+Output stored in name: Sarbesh Mallick                (full name) 
+
+
+Quick Rule-
+cin       -> reads one word
+getline() -> reads the entire line
+
+
+### We will learn string indexing 
+
+string name = "Sarbesh";
+
+Character:  S  a  r  b  e  s  h
+Index:      0  1  2  3  4  5  6
+
+name[0] -> S   (1st character)
+name[6] -> h   (last character)
+
+
+What if -> name[7] ?
+
+for Sarbesh
+- Length = 7
+- Last Index = 6
+
+So, name[7] is out of bounds and should be considered invalid access.
+
+
+This is the exact same rule you learned for arrays:
+
+Length = n
+Valid indices = 0 to n-1
+
+For "Sarbesh":
+
+Length = 7
+Valid indices = 0 to 6
+
+
+### Traversing- 
+It means Visit every element one by one.
+
+For an array of [10, 20, 30, 40, 50]
+Traversal means:-
+Visit 10
+Visit 20
+Visit 30
+Visit 40
+Visit 50
+
+For a string: Sarbesh 
+traversal means:-
+Visit 'S'
+Visit 'a'
+Visit 'r'
+Visit 'b'
+Visit 'e'
+Visit 's'
+Visit 'h'
+
+when we write for(int i = 0; i < name.length(); i++)
+Think of i as a finger moving across the string.       i=0 for S then i=1 for a then i=2 for r and so on.....      The loop variable is literally walking through the string.
+
+
+Why do we traverse?
+- Because we usually want to do something with each character.
+
+For Array:- 10 20 30 40 50
+Traversal:-
+arr[0]
+arr[1]
+arr[2]
+arr[3]
+arr[4]
+
+For String:- Sarbesh
+Traversal:-
+name[0]
+name[1]
+name[2]
+name[3]
+name[4]
+name[5]
+name[6]
+
+### The only difference is:- 
+Array -> elements are integers
+String -> elements are characters
+
+
+
+
+
+

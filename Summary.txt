@@ -28,3 +28,21 @@ Pass by Reference: using & to modify originals
 Next Steps:
 Don't just read. Type these examples. See them run. Break them. Fix them.
 That is the only way to learn C++.
+
+
+
+
+reference- Day2Revision4 of Arrays 
+Problems-
+
+1. Take 5 numbers.
+Print them in reverse.
+
+2. Take 5 numbers.
+Print only the largest.
+
+3. Take 5 numbers.
+Print their sum.
+
+
+
