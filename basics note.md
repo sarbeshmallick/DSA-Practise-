@@ -788,7 +788,138 @@ Array -> elements are integers
 String -> elements are characters
 
 
+### if we have to find length-
+
+vairable name.lenth()  
+Eg:- cout << fullName.length();
+
+Length counts every character including spaces 
+For, Sarbesh Mallick:-
+S a r b e s h     -> 7
+(space)           -> 1
+M a l l i c k     -> 7
+Total:- 7 + 1 + 7 = 15
+
+So, fullName.length() returns 15 
+
+fullName.length()  is same as fullName.size()   and for string it does the same thing.
+
+
+### Revise:-
+
+For, Sarbesh Mallick
+Length -> 15
+Last Index -> 14               (Last Index = Length - 1)
 
 
 
+### string-tuf-modified code-
+```
+// Probelem Statement- Store 2 strings and print it and show its length and also find the index of 3rd element 
 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  string firstname = "Sarbesh"; 
+  string lastname = "Mallick";
+
+  string fullname = firstname + " " + lastname;
+
+  cout << "My fullname is: " << fullname << endl;
+
+  cout << fullname.length() << endl;
+
+  cout << fullname[3];
+  
+    
+    return 0;
+}
+```
+
+Output-
+My fullname is: Sarbesh Mallick
+15
+b
+
+
+### Some clarification->
+
+- Image->
+![alt text](image-2.png)
+
+
+For example:
+string city = "Bangalore";
+
+Here:
+city is the variable name.
+"Bangalore" is the string value stored inside the variable.
+
+Think of it like a labeled box:
+Variable Name: city
+Value: Bangalore
+
+but numbers like integers dosen't need " "
+
+
+int age = 22;
+string name = "Sarbesh";
+char grade = 'A';
+Notice:
+age      -> variable name  
+name     -> variable name
+grade    -> variable name
+
+like in,   
+string city = "Bangalore";
+city is varibale and bangalore is string literal 
+
+Single Quotes means one character ' '
+
+
+### String-modified-dynamic code-   (user will input its name)
+
+```
+int main() {
+
+  string firstname, lastname, fullname;
+
+  cout << "Write your firstname: "; 
+  cin >> firstname;                         // getline(cin, firstname);     -  we can write also this to store middlename like Sarbesh Kumar as cin ends after space
+
+  cout << "Write your last name: ";
+  cin >> lastname;
+
+  fullname = firstname + " " + lastname;
+
+  cout << "My fullname is: " << fullname << endl;
+
+  cout << "Lenght of the first name is: " << firstname.length() << endl;
+  cout << "Lenght of the fullname is: " << fullname.length();  
+
+return 0;
+}
+```
+
+
+## Common Mistakes- 
+
+One thing to be careful about
+
+If there was a previous cin before the getline(), then you may run into the famous:
+getline() gets skipped
+problem because cin leaves a newline (\n) in the input buffer.
+
+Example:
+cin >> age;
+getline(cin, firstname);   // may get skipped
+
+In such cases, you'd use:
+cin.ignore();
+before getline().
+
+
+for my current input as getline is first there is no problem 
