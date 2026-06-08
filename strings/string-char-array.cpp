@@ -35,7 +35,7 @@ int main() {
     string str = "sarbesh";
     int length = str.size();
     for(int i = 0; i <= length - 1; i++) {
-    cout << str[i];                                   // if i just do cout << str;    then i will get 7 times sarbesh sarbeshsarbeshsarbeshsarbeshsarbeshsarbeshsarbesh
+    cout << str[i];                                   // if i just do cout << str;  then i will get 7 times sarbeshsarbeshsarbeshsarbeshsarbeshsarbeshsarbeshsarbesh
     }
 
     return 0;
