@@ -959,3 +959,513 @@ getline(cin, ?);       -   // ? is the varibale
 
 **Functions-**
 
+Imagine you hv- 
+- take 2 numbers
+- Add them 
+- print result 
+If you need this logic 10 times, you hv to write it 10 times.
+Instead, **Functions let you Write once, reuse many times**
+
+main() is itself an function     -   int main()
+
+- A function is a block of code that does a specific task. We write it once and call it whenever we need it.
+It's like a "helper" or a "servant". We teach the servant how to make tea once, and then just order "Make Tea" anytime.
+Functions keep our code clean and reusable
+
+int main() is the entry point of cpp code 
+void main() - it is a self function where it will do something but will not return anything
+
+
+## Code-
+```
+#include <iostream>
+using namespace std;
+void print() {
+    cout << "I am a print function" << endl;
+}                                                      
+int main() {
+    
+    return 0;                                                  // It will return nothing or print nothing , for that we need to call print() after int main()
+}
+```
+
+## functions code-
+```
+#include <iostream>
+using namespace std;
+
+void print() {
+    cout << "I am a print function" << endl;
+}
+
+int main() {
+
+    cout << "Before print function call" << endl;
+
+    print();                                                    // Whenver the function is called, its get a priority, it will be executed first & then reamining lines
+                                                                
+    cout << "After print function call" << endl;
+    
+    return 0;
+}
+```
+
+**Output-**
+Before print function call
+I am a print function
+After print function call
+
+
+### Explanation-
+
+void print() {
+    cout << "I am a print function" << endl;                // This does not excute anything, it only tell compilers that there exists a function named print()
+}                                                           // Its like a tool, tool exists but nobody is using it 
+
+
+program always starts from int main()  and not from print()
+1. so after int main the compiler reads "Before Print function call" and it prints that                        // Output-Before Print function call 
+2. now it reads print();
+3. when the cpu sees print();  -
+   Pause main()
+   Jump to print()
+   Execute print()
+   Come back / return
+   Continue main()
+
+4. inside print() cpu jumps here-
+   void print() {
+    cout << "I am a print function" << endl;                                                                   // Output- I am a print function
+}
+
+5. Functions ends as there is no explicit return 0; but as it is void it automatically returns when it reaches } 
+6. CPU goes back to the exact place where print() 
+7. Continue with main()  
+   cout << "After print function call" << endl;                                                                      // Output- After print function call
+
+8. Final Output-
+   Before print function call
+   I am a print function
+   After print function call 
+
+ When a function is called,
+ program control jumps to that function.
+ After the function finishes,
+ control returns to the caller.
+
+void means it returns nothing, its job is only to print something or doing something 
+void dosen't return values to int main() , it just does it job and shows it and exits 
+like void add() prints the cout but dosen't hand anything to main()
+
+
+### Understanding-functions Code-
+```
+int add() {
+    cout << 6 << endl;
+    return 5;
+
+}
+
+int main() {
+
+    cout << "Before print function call" << endl;
+
+    cout << add() << endl;
+
+    cout << "After print functionn call" << endl;
+                                                                
+    return 0;
+}
+```
+cout << 6;     -  Show 6 on the screen
+return 5;      - Give 5 back to the caller & caller will decide what do with it 
+
+
+
+
+
+### Example to understand void & main-
+
+**Void Function->**
+
+void printName() {
+    cout << "Sarbesh";
+}
+printName();                               // Call: printName();
+
+Output: Sarbesh 
+But what value came? -> Nothing cuz void means no return value 
+
+
+
+**Returning Function->**
+
+int getAge() {
+    return 22;
+}
+cout << getAge();                   // Call
+ 
+Output: 22
+
+
+**Trick Question->**
+
+Suppose-
+
+void printName() {
+    cout << "Sarbesh";
+}
+
+Can we do-    cout << printName();   ❌
+
+Because, printName() returns nothing and cout needs a value to print 
+
+
+
+**Mental Model-**
+cout
+↓
+Screen
+
+return
+↓
+Caller Function
+- Different destinations.
+
+
+### Inference-
+
+The function istelf has no special power.
+like print() dosent print automatically we have to write cout under that
+so, we can name te function anything like void add()  or void hello()  and still print something by writing cout 
+**the function name is just a label**
+
+The important thing is what does the function does inside its body 
+![alt text](image-3.png)
+
+
+
+- Never write code after return as the function has already exited 
+- in void function everything happens inside and main gets nothing, whatever u want do with void u do it inside void and just call it 
+- in functions, u do the math or whatever and give it to main and main will further do processing or just print it 
+  
+- void -> Includes everything under it 
+- function -> just do basic thing and return to main caller and the main will handle the rest 
+
+- with void whatever we do and if we print results, it just get printed and lost we cannot usally use it later in different way 
+
+
+### Let's take an example of void & return-
+
+**My Current function with void-**
+
+```
+void twonosprint() {
+    int num1, num2;
+    cin >> num1 >> num2;
+
+    cout << num1 + num2;
+}
+```
+- Suppose user enters 10, 20 and Output will be 30 then 
+- Now, 30 is printed on the screen 
+- but can another part of program uses 30?   ->  NO    ->  cuz it is printed not retuned 
+- twonosprint();         -  can print 30 
+- twonosprint() * 10     - Can't do ❌         cuz the function returns nothing 
+
+
+void function
+↓
+Performs an action
+
+Returning function
+↓
+Produces a value
+
+-------------------------
+
+void function
+↓
+Usually performs an action
+(printing, modifying data, etc.)
+
+int function
+↓
+Usually computes something
+and returns an answer
+This isn't a strict rule, but it's a very useful beginner mental model.
+
+
+- A printed value is visible to the user. A returned value is usable by the program.
+
+  
+### return-function-user code-   (User Input)
+Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return 
+```
+int add(int a, int b) {
+
+  return a + b;
+
+}
+
+int main() {
+
+  int num1, num2;
+  cout << "Enter two numbers: ";
+  cin >> num1 >> num2;
+
+  int result = add(num1, num2);                            // cout << "The sum is: " << add(num1, num2) << endl;    - we can call the funtion inside cout also 
+
+  cout << result << endl;
+  cout << result * 10 << endl;
+    
+    return 0;
+}
+```
+
+### return-function-harcoded code-    (Hard Coded)
+Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return 
+```
+int add(int a, int b) {
+  return a + b;
+}
+
+int main() {
+
+  int num1 = 10;
+  int num2 = 20;
+
+  int result = add(num1, num2);                 // int result = add(10, 20);       // cout << "The sum of " << num1 << " and " << num2 << " is: " << add(num1, num2) << endl;
+
+  cout << result << endl;                          // cout << "The sum of " << num1 << " and " << num2 << " is: " << add(num1, num2) << endl;
+
+  cout << result * 20;
+    
+    return 0;
+}
+```
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+**Paramterized functions-**
+
+A parameterized function is a function that accepts values as input through parameters, allowing the same function to work with different data.
+
+The Essence of a parameterized function: same function, different inputs, different outputs
+
+Why we need parameterized function?
+- becasue we don't want any modifications later, and as our input gets changed over time, the output should come in desired results 
+- for example->
+void greet() {
+    cout << "Hello Sarbesh";
+}
+- Output->  Hello Sarbesh
+- now tomorrow if we want Hello John, Hello Anu, Hello Cutie then?  will we create different functions for them like greetAnu() or greetCutie()  ❌
+- Instead, we make the function accepts Input 
+
+Parameters->
+void greet(string name)
+here:
+     Function Name -> greet
+     Parameter -> name
+Now the function can work with any name.
+
+
+
+## Parameterized-void-function code-
+```
+// paramterized functions using void 
+
+#include <iostream>
+using namespace std;
+
+void greet(string name) {
+    cout << "Hello " << name << endl;
+}
+
+
+int main() {
+
+  greet("Sarbesh");
+  
+  greet("Anu");
+ 
+    return 0;
+}
+```
+
+
+### Old Code of the above- 
+
+Old code when no endl is given inside void so the name was priniting on same line and i cleverly wrote cout << endl; in code line 1311
+
+```
+void greet(string name) {
+    cout << "Hello " << name;
+}
+
+
+int main() {
+
+  greet("Sarbesh");
+  cout << endl;
+  greet("Anu");   
+  return 0;
+}
+```
+
+
+### Code Breakdown->
+
+void greet(string name) {
+    cout << "Hello " << name << endl;
+}
+
+1. greet is just a function name 
+2. we could also write void hello(string name)  or  void banana(string name)  , the compiler dosen't care
+   
+
+1. string name is a parameter 
+2. **Means**- This function expects a string.
+          When someone calls me,
+          I'll store that string inside a variable called name.
+3. think of it like an empty box, before calling name = ? ,  after calling greet("Sarbesh")  the CPU does name = "Sarbesh"
+4. now the fucntion becomes   -   cout << "Hello " << "Sarbesh" << endl;
+5. Output   -  Hello Sarbesh
+
+
+1. why hello remains same because it is fixed and name is a variable and so it gets changed everytime
+cout << "Hello " << name;
+
+
+1. and coming why we choose name, we can actually choose anything over here like person or xyz 
+2. like   void greet(string person) 
+          cout << "Hello " << person;
+3. the compiler cares about consistency 
+4. like for example-
+
+         void greet(string banana) {
+         cout << "Hello " << banana;
+         }
+         greet("Sarbesh");
+
+Output-   Hello Sarbesh 
+
+
+
+### Revision-
+
+void greet(string name)
+
+**means:**
+Function name = greet
+Parameter type = string
+Parameter variable = name
+Whatever string is passed during function call, gets stored in name.
+
+
+
+### Advanced Stuff->
+
+- Current version:    
+void greet(string name)
+greet("Sarbesh");           // when you call
+
+C++ creates a copy 
+**Think:**
+Original:
+"Sarbesh"
+
+Copy:
+"Sarbesh"
+
+Function uses the copy 
+
+
+- Reference version:
+void greet(string& name)     
+
+Now no copy is created, Function directly uses the original string, Faster.
+
+later we will use-
+void greet(const string& name)
+
+Meaning:
+Don't make a copy
+Use the original string
+Don't allow modifications
+
+
+
+### revising Questions-
+
+1. 
+void show(int x) {
+    cout << x;
+}
+show(25);                     // Output- 25 
+
+
+2. 
+void show(int x) {                                                            -> parameter head 
+    cout << x + 5;                                                            -> parameter body 
+}
+show(10);                     // Output- 15                                   -> show(10) is a an argument 
+
+
+3. 
+int add(int a, int b) {
+    return a + b;
+}
+cout << add(2, 3);             // Output- 5
+
+
+4. 
+void printSalary(double salary) {
+    cout << salary;
+}
+printSalary(12345.67);                  // Output- 12345.67
+
+
+5. 
+   void student(string name, int age, char grade) {
+    cout << name << " "
+         << age << " "
+         << grade;
+}
+student("Sarbesh", 22, 'A');                                    // Output- Sarbesh 22 A
+
+
+- Remember the Argument should match the parameter type 
+![alt text](image-4.png)
+
+
+- when we see:
+  void greet(string name)
+Function Name : greet
+Input Type    : string
+Variable Name : name
+
+- when we se:
+void add(int a, int b)
+Function Name : add
+Input Type    : int, int
+Variable Name : a, b
+
+- The pattern is always-> 
+return_type function_name(parameter_type parameter_name)
+
+
+
+-----------------------------------------------------------------
+
+
+**Paramerterized functions with returning functions-**
+
+

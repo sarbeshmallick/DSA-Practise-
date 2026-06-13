@@ -22,6 +22,7 @@ int main() {
     
     // We call the function right inside the cout statement!
     cout << "The sum is: " << add(num1, num2) << endl;
+    cout << add(num1, num2) * 10;
     
     return 0;
 }

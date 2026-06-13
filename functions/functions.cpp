@@ -39,7 +39,8 @@ int main() {
 
     cout << "Before print function call" << endl;
 
-    print();                                                             // Whenver the function is called, its get a priority, it will be executed first & then reamining lines
+    print();                                                    // Whenver the function is called, its get a priority, it will be executed first & then reamining lines
+                                                                
     cout << "After print function call" << endl;
     
     return 0;
