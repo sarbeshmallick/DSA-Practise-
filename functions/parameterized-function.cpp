@@ -27,7 +27,7 @@ int main() {
 Old code- 
 int main() {
     int res = sumOfTwoNumbers(4, 5);
-    cout << res;                                                 // whatever is returned gets stored in result 
+    cout << res;                                                 // whatever is returned gets stored in res
                                                                  // Passing the function call directly into cout is cleaner
     return 0;
 }

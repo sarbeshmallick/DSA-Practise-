@@ -110,13 +110,13 @@ TUF Pass by value--
 using namespace std;
 
 void changeValue(int x) {
-    x = 100; // Changes only the copy
+    x = 100;                                           // Changes only the copy
 }
 
 int main() {
     int num = 10;
     changeValue(num);
-    cout << num; // Output: 10 (Original didn't change!)
+    cout << num;                                   // Output: 10 (Original didn't change!)
 }
 
 
@@ -125,14 +125,14 @@ TUF pass by reference--
 #include <iostream>
 using namespace std;
 
-void changeRealValue(int &x) { // Note the '&'
-    x = 100; // Changes the actual variable
+void changeRealValue(int &x) {                             // Note the '&'
+    x = 100;                                             // Changes the actual variable
 }
 
 int main() {
     int num = 10;
     changeRealValue(num);
-    cout << num; // Output: 100 (It changed!)
+    cout << num;                                    // Output: 100 (It changed!)
 }
 
 

@@ -1468,4 +1468,323 @@ return_type function_name(parameter_type parameter_name)
 
 **Paramerterized functions with returning functions-**
 
+lets's take an example why we need return instead of void->
+
+void greet(string name) {
+    cout << "Hello " << name;
+}
+greet("Sarbesh");                      // Call
+
+Output-> Hello Sarbesh
+
+Can we do this? ->
+int x = greet("Sarbesh");    ofc NO ❌  cuz greet() returns nothing.
+
+
+- Returning Function->
+```  
+int add(int a, int b) {                      
+    return a + b;
+}
+```
+
+### Decode-
+- here this function promises to return an integer 
+- Suppose-> 
+  add(10, 20);
+- CPU enters a = 10 and b = 20 
+- then return (a + b);    becomes return 30;     Functions sends 30 back to whoever called it 
+
+Where does this 30 goes?
+
+1. Option1:-  Print immediately 
+   
+  cout << add(10,20);
+
+Execution:
+add(10,20)
+↓
+returns 30
+↓
+cout prints 30      // Output- 30 
+
+
+2. Option2:- Store it 
+   
+   int sum = add(10,20);                       // Now sum = 30
+   cout << sum;                                // Output- 30 
+
+
+3. Option3:- Reuse it 
+   
+   int sum = add(10,20);
+   cout << sum * 10;        
+
+Output- 300   
+Notice that Function code unchanged, but we did something completely different with the result. This is why returning functions are powerful.
+
+
+
+### same example with string-
+```
+string getName() {
+    return "Sarbesh";
+}
+```
+cout << getName();                      // Output- Sarbesh
+
+
+### Thing to Remember-
+In void output happens inside function and in returning output happens wherever we choose 
+
+Void->
+void add(int a, int b) {
+    cout << a + b;
+}
+
+
+Return->
+int add(int a, int b) {
+    return a + b;
+}
+
+1. cout << add(10,20);
+
+2. int result = add(10,20);
+
+3. if(add(10,20) > 25)
+
+all works, whenever we want output we can do 
+
+
+
+## paramterized-return-function code-
+// Parameterized Functions using return 
+// Problem Statement- Write a function that returns addition of 2 numbers 
+
+```
+#include <iostream>
+using namespace std;
+
+int sumoftownos(int num1, int num2) {
+  return num1 + num2;
+}
+
+int main() {
+
+  int res = sumoftownos(10, 20);                                // cout << sumoftownos(10, 20);   can also be used but we used this if we need sumoftownos multiple times 
+
+  cout << res;
+    
+  return 0;
+}
+```
+
+### Terminology check- 
+
+int sumOfTwoNumbers(int num1, int num2)
+num1 and num2 are parameters 
+
+sumOfTwoNumbers(4, 5);
+4 and 5 are arugments 
+
+
+
+## parameterized functions-multi-variables code-
+```
+int add(int a, int b) {
+  return a + b;
+}
+
+int main() {
+
+  int x = add(3, 4);
+  int y = add(x, 10);
+
+  cout << x << "\n" << y;
+    
+    return 0;
+}
+```
+
+### Observation->
+can you see that we wrote x in    ( int y = add(x, 10); )
+we are passing 7 and not directly wrote 7
+as x contains 7 only 
+
+
+## pass by value using void code- 
+```
+#include <iostream>
+using namespace std;
+
+void change(int x) {
+    x = 100;
+}
+
+int main() {
+    int num = 10;
+
+    change(num);
+
+    cout << num;
+}
+```
+Output-  10 
+
+
+## pass by reference using void code- 
+```
+#include <iostream>
+using namespace std;
+
+void change(int &x) {                              // here addition of & makes it reference 
+    x = 100;
+}
+
+int main() {
+    int num = 10;
+
+    change(num);
+
+    cout << num;
+}
+```
+Output- 100 
+
+- No copy is created, instead x becomes another name for num ,  so both point to same variable 
+
+
+
+## pass-by-value-returning-functions code-
+```
+#include <iostream>
+using namespace std;
+
+int change(int x) {
+    x = 100;
+    return x;
+}
+
+int main() {
+
+int num = 10;                                                // Call started from here 
+
+cout << change(num) << endl;
+cout << num;
+
+return 0;
+}
+```
+
+### Observation-
+Output-
+100
+10 
+
+Initially:
+num = 10
+
+Call:
+change(num);
+
+Pass by value creates a copy:
+num = 10
+copy x = 10
+
+Inside function:
+x = 100;
+
+Now:
+copy x = 100;
+num = 10;
+
+Return:
+return x;
+returns 100 
+
+
+Ouput:
+100
+10 
+
+Returned value = 100
+Original variable = 10
+
+
+
+## pass-by-reference-returning-functions code-
+```
+#include <iostream>
+using namespace std;
+
+int change(int &x) {
+    x = 100;
+    return x;
+}
+
+int main() {
+
+  int num = 10;
+
+cout << change(num) << endl;
+cout << num;
+
+  return 0;
+}
+```
+
+### Observation-
+
+Output- 
+100
+100
+
+
+Initally:
+num = 10 
+
+Call:
+change(num);
+
+Reference:
+x refers to num
+
+inside function:
+x = 100;
+
+Since x and num are same varibales-
+num = 100
+
+Return:
+return x;
+returns 100 
+
+
+Output-
+100
+100 
+
+Returned value = 100
+Original variable = 100
+
+
+
+### Pass by value interesting example-
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+
+### pass by reference example-
+![alt text](image-7.png)
+![alt text](image-8.png)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
