@@ -21,7 +21,12 @@ return 0; - tells the compiler / OS I have done writing the code and it is the e
 
 endl; - executes the 1st code and takes 2nd code in new line. **NEW LINE**
 
----
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 strings are written in double quotes " "
 
@@ -35,19 +40,22 @@ cout << anyvariablename; // output will be 10
 return 0;
 }
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 **Integer-**
 
 Integer range-> 10^-9 to 10^9
 
-int main() { // int main() {  
- int numInt = 10; int numInt = 10;
-cout << "Integer is: " << numInt << endl; cout << "Integer is: " << "numInt" << endl;
-return 0; return 0;  
-} } // no double quotes in variable name
+int main() {   
+ int numInt = 10;                                                         // no double quotes in variable name
+cout << "Integer is: " << numInt << endl; 
+return 0; 
+}                                                                                             
 
-Output- Integer is: 10 Output- Integer is: numInt
+Output- Integer is: 10 
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Long-**
 
@@ -848,7 +856,7 @@ b
 ### Some clarification->
 
 - Image->
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 
 For example:
@@ -1141,7 +1149,7 @@ so, we can name te function anything like void add()  or void hello()  and still
 **the function name is just a label**
 
 The important thing is what does the function does inside its body 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 
 
@@ -1443,7 +1451,7 @@ student("Sarbesh", 22, 'A');                                    // Output- Sarbe
 
 
 - Remember the Argument should match the parameter type 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 
 - when we see:
@@ -1771,13 +1779,13 @@ Original variable = 100
 
 
 ### Pass by value interesting example-
-![alt text](image-5.png)
-![alt text](image-6.png)
+![alt text](images/image-5.png)
+![alt text](images/image-6.png)
 
 
 ### pass by reference example-
-![alt text](image-7.png)
-![alt text](image-8.png)
+![alt text](images/image-7.png)
+![alt text](images/image-8.png)
 
 
 
