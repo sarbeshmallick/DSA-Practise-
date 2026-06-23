@@ -1,6 +1,6 @@
 
 
-// Probelem Statement  - print 1 to 10 numbers but in reverse order 
+// Problem Statement  - print 1 to 10 numbers but in reverse order 
 // so to solve in reverse order that is 10 to 1 we need to start from 10 
 
 

@@ -776,7 +776,8 @@ else
 This is the core nested if-else pattern.
 
 
-Cleaner code with no ties-
+**Cleaner code with no ties-**
+
 if (a >= b) {
 
     if (a >= c)
@@ -795,16 +796,209 @@ else {
 
 
 
+## Important Concept- 
+
+'='  and  '==' both are different 
+
+= is an assignment operator,  int a = 10;  meaning store value 10 in variable a 
+
+== is an equality operator, it checks whether two values are equal or not,   if (a == 10) means check if a = 10 or not 
 
 
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
 
-**Arrays-**
+4. **Loops-**
+
+- when certain no. of things are repeated use LOOPS 
+- first one is initializer, 2nd one is condition or break statement, third one is increment/decrement
+  
+
+## for-loop code-
+
+Problem Statement- take input of 10 numbers and print it   OR   Print all the numbers from 1 to 10 
+
+here we can use Loops 
+instead of writing 10 nos 
+
+if we are not writing loops then-
+int main() {
+int num1, num2, num3, num4...num10;
+cout << "enter no";
+cin >> num1 >> num2 >> ...num10;
+}
+
+```
+int main() {
+
+  for (int i = 1; i <= 10; i++) {
+    cout << i << endl;
+  }
+
+    
+    return 0;
+}
+```
+Output- 1 
+        2
+        3
+        4
+        ..
+        10 
+
+
+### Things to remember- 
+
+for (int i = 1; i = i + 1)  - no condition, always checks in. This is INFINITE LOOP , prog dosen't know when to stop and keep revolving around for 
+  & will never reach last condition that is return 0;
+
+for (int i = 1; i<=2;)   - Again Infinite loop as I failed to give increment then aslo it will not stop because i will always be 1 and 2nd condition is always be true 
+
+for (int i = 1;true;i++;)  - Again Infinite loop 
+
+that's why you need to give valid BREAK'S statement which gonna be false at some moment 
+
+for(initialization; condition; update)
+for(int i = 1;  i <= 10;    i++)
+
+
+
+
+### Hello 5 times tuf code- 
+// Problem statement- print hello 5 times using loops 
+
+```
+int main() {
+
+  int i;
+  for (int i = 1; i <= 5; i++) {
+    cout << "Hello" << endl;
+  }
+    
+    return 0;
+}
+```
+
+
+### for-loop-odd 1 to 20 code- 
+
+Problem Statement- Print odd numbers from 1 to 20
+
+```
+int main() {
+
+  for (int i = 1; i <= 20; i = i+2) {
+    cout << i << endl;
+  }
+    
+    return 0;
+}
+```
+
+
+### for-loop-even 1 to 20 code- 
+
+Problem statement-  Print even numbers from 1 to 20
+
+```
+int main() {
+
+
+  for (int i = 2; i <= 20; i = i+2) {
+    cout << i << endl;
+  }
+
+return 0;
+```
+
+
+### for-loop 10 to 1 in reverse order code-
+Problem stat-  print 1 to 10 numbers but in reverse order 
+
+```
+int main() {
+
+  for( int i = 10; i >= 1; i--) {
+    cout << i << endl;
+  }
+    
+    return 0;
+}
+```
+
+
+### for loop 10 to 1 reverse even code- 
+problem stat- print all numbers from 10 to 1 in reverse order but print just even numbers
+
+```
+int main() {
+
+  for (int i = 10; i >= 1; i = i - 2) {
+    cout << i << endl;
+
+  }
+    
+    return 0;
+}
+```
+
+
+### for-loop-5multiples upto 100 code- 
+Problem stat- Print all the multiples of 5 till 100 
+
+```
+int main() {
+
+  for (int i = 5; i <= 100; i = i + 5) {
+    cout << i << endl;
+
+  }
+    
+ return 0;
+}
+
+```
+
+
+
+### for 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. **Arrays-**
 
 An Array is an multiple values of the same type stored in contiguous memory locations.
 Arrays are containers where we can keep similar data types.
