@@ -83,6 +83,43 @@ cout << LONG_MAX << endl;
 cout << LLONG_MAX << endl;
 (after including <climits>)
 
+
+## Code for max- 
+```
+#include <iostream>
+#include <climits> 
+
+using namespace std;
+
+int main() {
+
+    cout << INT_MAX << endl;
+    cout << LONG_MAX << endl;
+    cout << LLONG_MAX << endl;
+
+    return 0;
+}
+```
+Output-> 
+2147483647
+2147483647
+9223372036854775807
+
+
+### Fun Fact-
+1. its better to use '\n' compared to "\n" although the difference is tiny 
+2. when we cout << "Hello";  the text is not printed immediately on terminal, instead it goes on temporary memory area called **Buffer**
+3. Flushing means take everything currently sitting in the buffer and send it to the output device right now.
+    cout << "Hello";
+    cout.flush();  
+4. endl is equivalent to print a newline & flushing the buffer 
+5. although flush or endl is better but it is not free, mostly '\n' is used
+6. ![alt text](images/image.png)
+7. buffer is like a truck carrying packages ![alt text](images/image-1.png)
+
+
+
+
 **LONG LONG-**
 
 range of long long -> 10^-18 to 10^18
@@ -96,6 +133,12 @@ cout << numInt <<endl;
     return 0;
 
 }
+
+1. Number data Types->                    int , long , long long 
+2. Decimal number data types->            float , double 
+3. single alphabet/letter/symbol->        char
+4. multiple letters->                     string                      (string is a class under std & not data tyoe, Eg- "Sarbesh can do it!")
+5. true/false->                           bool
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -126,6 +169,8 @@ return 0;
 }
 
 Output- a
+
+
 
 int main() {
 char ch = 'a';
@@ -184,13 +229,18 @@ char reads only first letter
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**Input/Output-**
+
+
+
+2. **Input/Output-**
 
 output -- ask user to put value int main()
-input -- store it int num1, num2; // one data type then multiple vriables
+input -- store it int num1, num2; // one data type then multiple variables
 output operations -- show it as result
 
+
 **tuf eg code-**
+```
 int main() {
 
     int age;
@@ -207,9 +257,12 @@ int main() {
     return 0;
 
 }
+```
+
+
 
 **Dynamic input code-**
-
+```
 int main() {
 
     int num1, num2, num3, num4;                     // we are taking 4 variables here
@@ -224,15 +277,18 @@ int main() {
     return 0;
 
 }
+```
 
-**input-output4-** (taking 2 variables bdate & num)
 
+
+**input-output4-** (taking 2 variables i.e bdate & num)
+```
 int main() {
 
 int bdate, num;
 
 cin >> bdate;
-cin >> num; // alternatively we can write cin >> bdate >> num;
+cin >> num;                                                 // alternatively we can write cin >> bdate >> num;
 
 cout << "The date of birth is :" << bdate << endl;
 cout << "The number is :" << num;
@@ -240,12 +296,15 @@ cout << "The number is :" << num;
     return 0;
 
 }
+```
+
+
 
 **input-output5-** (again taking 2 variables but asking user output first)
-
+```
 int main() {
 
-int bdate; // Alter int bdate, num;
+int bdate;                           // Alter int bdate, num;
 int num;
 
 cout << "Enter your DoB : ";
@@ -260,9 +319,12 @@ cout << "The number is : " << num;
     return 0;
 
 }
+```
+
+
 
 **input-output6-** (Taking 2 data types- int & float)
-
+```
 int main() {
 
 int bdate; float num;
@@ -274,8 +336,8 @@ cout << "Enter a number : "; cin >> num;
 cout << "The DoB is : " << bdate << endl << "The number is : " << num;
 
     return 0;
-
 }
+```
 
 /\* Input-
 Enter your DoB : 22
@@ -288,9 +350,17 @@ The number is : 7.85
 // to show we dont hv to write so many lines
 \*/
 
+
+
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**if/else-**
+
+
+
+
+3. **if/else-**
 
 if is a conditional statement
 if()
@@ -304,11 +374,20 @@ a condition is expressed in **true** or **false**
 10 < 5 → false
 a == b → true/false
 
+
+
 **if(condition)**
 
 **Struct of if-**
 if (....) {
 }
+
+
+if(conditions) {
+    if conditions are true then do logic/operations/print
+}
+
+
 
 **else-**
 if the previous condition was false do this instead
@@ -319,6 +398,9 @@ if (rain)
 take umbrella
 else
 don't take umbrella
+
+
+
 
 we use **else if** when there are **multiple conditions**
 
@@ -335,6 +417,9 @@ if(x > 90) if(x > 90)
 if(x > 75) else if(x > 75) --> They are not same as if's all conditions are checked and with else if checking stops when the 1st true condition arrives
 if(x > 50) else if(x > 50)
 
+
+
+**Structure-**
 if(conditionals) {
 operation if condition is true and checks all the next if's condition
 }
@@ -347,8 +432,12 @@ else if (conditions) {
 operation and stops at 1st true condition
 }
 
-**if-else-tuff code-**
 
+
+**if & else-tuff code-**
+
+Problem statement- if the user has >1000 then cout buy a pizza or else if it is less then cout I will buy a burger 
+```
 int main() {
 int money = 500;
 
@@ -356,19 +445,23 @@ int money = 500;
     cin >> money;
 
 if (money >= 1000) {
-cout << "I will buy a pizza";
+   cout << "I will buy a pizza";
 }
 
-    else {
-        cout << "I will buy a burger";
-    }
+else {
+   cout << "I will buy a burger";
+ }
 
     return 0;
 
 }
+```
 
-**if-else code-**
 
+**if & else code-**
+
+Problem Statement- Given an age, print adult >= 18, or print "Teen"
+```
 int main() {
 
 int age;
@@ -376,7 +469,7 @@ cout << "Enter your age: ";
 cin >> age;
 
 if (age >= 18) {
-cout << "Adult"; // if we don't use else, then the program will print "Adult" for ages 18 and above, but it will not print anything for ages below 18
+cout << "Adult";                // if we don't use else, then the program will print "Adult" for ages 18 and above, but it will not print anything for ages below 18
 }
 
 else {
@@ -384,14 +477,19 @@ cout << "Teen";
 }
 return 0;
 }
+```
+
+
 
 **if-else-multiple-**
 
+Problem Statement- 
 // Given an age,
 // if the age >= 18, print "Adult"
 // if the age < 18 and >= 10, print "Teen"
 // if the age < 10, print "Child"
 
+```
 int main() {
 
 int age;
@@ -402,8 +500,8 @@ if (age >= 18) {
 cout << "Adult";
 }
 
-else if (age < 18 && age >= 10) { // in and && operator both the condition should be true to fullfill the overaall condition
-cout << "Teen"; // or else if we want one condition can be true we will use OR || operator
+else if (age < 18 && age >= 10) {                           // in "and" "&&" operator both the condition should be true to fullfill the overall condition
+cout << "Teen";                                             // or else if we want one condition can be true we will use OR " || "  operator
 }
 
 else if (age < 10) {
@@ -413,9 +511,21 @@ cout << "Child";
     return 0;
 
 }
+```
+
+
 
 **if-else-multiple2-**
 
+Problem statement-
+Given the marks of a student, tell us the grade he is getting following the below rules 
+ Grade A- (>=90)
+ grade B- (>=70 and <90)
+ Grade C- (>=50 and <70)
+ Grade D- (>=35 and < 50)
+ Fail-     (< 35)
+
+```
 int marks;
 cout << "Enter marks :";
 cin >> marks;
@@ -441,8 +551,11 @@ cout << "Fail";
 }
 
 return 0;
+```
 
----
+----------------------------------------------------------------------------------------------------------
+
+
 
 **switch case-**
 
@@ -456,11 +569,13 @@ break; means exit the switch immediately
 default means like else in if-else chain
 if no case mathces- default: runs
 
+
 switch() {
 
 }
 
-switch(variable name) { // switch(day) {}  
+
+switch(variable name) {                                                // switch(day) {}  
  case 1:
 break;
 
@@ -468,8 +583,10 @@ case 2:
 break;
 }
 
-**switch-case code-**
 
+
+**switch-case code-**
+```
 int main() {
 
 int day;
@@ -514,12 +631,174 @@ switch(day) {
     return 0;
 
 }
+```
+
+
+
+
+## Nested if-else->
+
+What is Nested if-else?
+A nested if-else means:
+👉 an if statement inside another if statement.
+So first outer condition checks, then inner condition checks.
+Example:
+if (condition1) {
+
+    if (condition2) {
+        // code
+    }
+
+}
+
+Important Learning
+Outer if  - Narrows down possibilities.
+Inner if   -  Does more detailed checking.
+That is exactly how nested conditions work.
+
+
+### Nested-if-refined code-
+
+Problem statement-
+You are given three integers a, b and c
+print which of these integers are largest 
+if two or more integers are equal and are the largest, print any of them
+the program should indicate that as well , user will input the 3 integers at runtime
+
+```
+int main() {
+
+  int a, b, c;
+  cout << "Enter your 3 numbers: ";
+  cin >> a >> b >> c;
+
+
+  if (a >= b) {
+
+    if(a >= c){
+
+      if (a == b || a == c) {
+        cout << "largest number is: " << a << " & There's a tie" << endl;
+      }
+
+      else {
+        cout << "largest number is: " << a << endl;
+      }
+    }
+
+      else {
+        cout << "largest number is: " << c << endl;
+      }
+
+  }
+
+
+  else if ( b >= c) {
+      
+    if ( b == c) {
+      cout << "largest number is: " << b << " & There's a tie" << endl;
+    }
+
+    else {
+      cout << "largest number is: " << b << endl;
+    }
+
+  }
+
+
+  else {
+    cout << "largest number is: " << c << endl;
+  }
+
+  return 0;
+  }
+```
+
+
+### Nested-tuf code-
+
+Problem statement- 
+You are given three integers a, b and c
+print which of these integers are largest 
+if two or more integers are equal and are the largest, print any of them
+the program should indicate that as well
+the 3 integers are 36 56 78
+
+```
+int main() {
+
+  int a = 36;
+  int b = 56;
+  int c =78;
+
+  if (a >= b) {
+
+    if (a >= c) {
+      cout << "Largest is a";
+    }
+    else {
+      cout << "Largest is c";
+    }
+  }
+
+  else if (b >= c) {
+    cout << "Largest is b";
+  } 
+
+  else {
+    cout << "Largest is c";
+  }   
+
+
+    return 0;
+}
+```
+
+- So first outer condition checks, then inner condition checks.
+
+
+**Visual Structure-**
+
+if (a >= b)
+
+    if (a >= c)
+        a largest
+    else
+        c largest
+
+else
+
+    if (b >= c)
+        b largest
+    else
+        c largest
+
+This is the core nested if-else pattern.
+
+
+Cleaner code with no ties-
+if (a >= b) {
+
+    if (a >= c)
+        cout << a;
+    else
+        cout << c;
+
+}
+else {
+
+    if (b >= c)
+        cout << b;
+    else
+        cout << c;
+}
 
 
 
 
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 

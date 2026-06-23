@@ -41,6 +41,8 @@ int main() {
         }
 
     }
+
+
     else {
 
         if (b >= c) {
@@ -53,7 +55,9 @@ int main() {
             }
 
         }
-        else {
+
+
+    else {
             cout << "Largest number is " << c;
         }
 

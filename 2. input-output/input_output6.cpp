@@ -1,3 +1,8 @@
+
+// Problem statement- using 2 data types i.e int & float and 2 variable names i.e bdate & num
+
+
+
 #include <iostream>
 using namespace std;
 

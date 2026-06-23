@@ -1,3 +1,7 @@
+
+// Problem Statement- Taking 2 variables i.e bdate and num of same datatype int 
+
+
 #include <iostream>
 using namespace std;
 

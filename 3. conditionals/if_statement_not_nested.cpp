@@ -44,18 +44,22 @@ int main() {
   // }
 
   // cleaner version of code-
+
+
   if (a >= b && a >= c) {
     cout << "Largest integer is: " << a;
     if (a == b && a == c) {
       cout << " (All integers are equal)";
     }
   }
+
   else if (b >= a && b >= c) {
     cout << "Largest integer is: " << b;
     if (b == a && b == c) {
       cout << " (All integers are equal)";
     }
   }
+  
   else {
     cout << "Largest integer is: " << c;
     if (c == a && c == b) {
