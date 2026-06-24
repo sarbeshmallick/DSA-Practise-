@@ -966,29 +966,345 @@ int main() {
 
 
 
-### for 
+### for-loop-5-inputs-print-sum code- 
+
+Problem Statement- Take 5 inputs and print their sum
+Problem summary - This program uses a loop to take 5 numbers one by one, keeps adding them to sum, and after all inputs are taken, prints the final total
+- It's an accumulation pattern 
+
+
+```
+int main() {
+
+  int num;
+  int sum = 0;
+
+  
+  cout << "Enter 5 nos: ";
+
+  for(int i = 1; i <= 5; i++) {
+
+  cin >> num;
+
+  sum = sum + num;
+
+}
+
+cout << "Sum = " << sum;
+
+return 0;
+}
+```
+
+Input: 2 4 6 8 10 
+output: Sum = 30
+
+
+### Breakdown- 
+
+int sum = 0;    - we create a variable to store the local 
+initially sum = 0
+Loop runs 5 times    -  for(int i = 1; i <= 5; i++)
+take input   -   cin >> num;
+add number to the sum    -    sum = sum + num;
+
+Example:
+sum = 0
+user enters 5
+new sum = 0 + 5 = 5
+
+Then:
+user enters 3
+new sum = 5 + 3 = 8
+and so on.
+
+instead of sum = sum + num ,   u can write-    sum += num;
+
+
+### Explanation- 
+
+- int num;    ->  Its a temporary storage box. Every time the user enters a number, it goes into num
+Example:
+User enters 2  → num = 2
+User enters 4  → num = 4
+User enters 6  → num = 6
+-num keeps getting overwritten with the latest input.
+  
+  
+- sum stores the total. We start with zero.
+
+
+- for(int i = 1; i <= 5; i++) 
+- this means take 5 inputs one by one just like a loop 
+instead of writing manually everytime:
+cin >> num;
+cin >> num;
+cin >> num;
+cin >> num;
+cin >> num;
+
+we use a loop to repeat the same task 5 times.
+
+- here i is just used for counting. 
+- We are not printing i, and we don't really care about its value. We only use it to make the loop run 5 times.
+
+
+Q. Why  is it called "Accumulation Pattern"?
+A. Because a variable keeps accumulating (collecting) values over time.
+
+
+- - 
+int num;
+int sum = 0;
+
+num → stores each number entered by the user.
+sum → stores the running total.
+We initialize sum to 0 because we haven't added anything yet.
+
+Think of sum as a bucket:
+sum = 0
+Every new number gets added into the bucket.
+
+
+- - 
+Loop
+for(int i = 1; i <= 5; i++)
+
+This loop runs 5 times.
+
+| Iteration | i |
+| --------- | - |
+| 1st       | 1 |
+| 2nd       | 2 |
+| 3rd       | 3 |
+| 4th       | 4 |
+| 5th       | 5 |
+
+
+- - 
+Taking Input
+cin >> num;     // Stores one number in num.
+
+Example:
+User enters 2
+num = 2
+
+
+- - 
+Accumulating the Sum
+sum = sum + num;
+
+This means:  Take the old value of sum and add the new number to it.
+
+Example if user enters:
+2 4 6 8 10
+
+| Input | Calculation | sum |
+| ----- | ----------- | --- |
+| 2     | 0 + 2       | 2   |
+| 4     | 2 + 4       | 6   |
+| 6     | 6 + 6       | 12  |
+| 8     | 12 + 8      | 20  |
+| 10    | 20 + 10     | 30  |
+
+Final:   sum = 30
+
+
+- - 
+Output
+cout << "Sum = " << sum;
+
+Prints:
+Sum = 30
+
+
+- - 
+Dry Run- 
+
+Suppose input is:
+1 2 3 4 5
+
+Start:
+sum = 0
+
+Iteration 1:
+num = 1
+sum = 0 + 1 = 1
+
+Iteration 2:
+num = 2
+sum = 1 + 2 = 3
+
+Iteration 3:
+num = 3
+sum = 3 + 3 = 6
+
+Iteration 4:
+num = 4
+sum = 6 + 4 = 10
+
+Iteration 5:
+num = 5
+sum = 10 + 5 = 15
+
+Output:
+Sum = 15
+
+- - 
+  
+### note- 
+
+we wrote " cout << i << endl; " in every other loop programs why not here?
+
+in earlier programs-
+for(int i = 1; i <= 5; i++) {
+    cout << i << endl;
+}
+
+Here the goal is Print every value of i.
+So during each iteration, you immediately display i
+Output:
+1
+2
+3
+4
+5
+
+
+But in this program:
+for(int i = 1; i <= 5; i++) {
+    cin >> num;
+    sum = sum + num;
+}
+
+The goal is different: Add all 5 numbers together and print only the final answer.
+
+if we write "  cout << sum << endl;  "  inside the loop we will get 
+Output:
+2
+6
+12
+20
+30
+
+because sum changes after every input.
+
+But our probelm asked for final number after all the numbers have been added 
+Thats why cout << "Sum = " << sum;  is placed outside the loop 
+
+
+this is what i was talking about being inside the for loop:- 
+for(int i = 1; i <= 5; i++) {
+
+  cin >> num;
+  sum = sum + num;
+  cout << "Sum = " << sum << endl;
+ }
+
+Enter 5 nos: 2 4 6 8 10
+Sum = 2
+Sum = 6
+Sum = 12
+Sum = 20
+Sum = 30
+
+
+
+Notice how the meaning changes based on where cout is placed:
+
+// Inside loop
+for(...)
+{
+    ...
+    cout << sum;
+}
+
+➡️ Print after every iteration.
+
+for(...)
+{
+    ...
+}
+
+cout << sum;
+
+➡️ Print only the final result after the loop finishes.
+
+This is one of the most important ideas in loops: statements inside the braces {} run every iteration; statements outside run only once.
+
+A picture of when i is inside and outside the loop and i is not only used for counting 
+![alt text](images/image-9.png)
+The first 1 2 3 4 5 come from inside the loop. Final 6 comes from outside the loop
+i is usually used as a loop counter, but it can also be used for other purposes if needed.
+Remember loop does not stop at 5. It stops when the condition becomes false. 
+![alt text](images/image-10.png)
 
 
 
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
+**While Loop-**
+
+- Another syntatcical way of writing for loop 
+- never forget to include update or increment/decrement in while loop (i++) orelse it will be an infinite loop 
+  
+## Basic structure of while loop- 
+int i = 1;
+
+while(i <= 5) {
+    cout << i << endl;
+    i++;
+}
 
 
+## comparison for vs while loop- 
+for(int i = 1; i <= 5; i++) {
+    cout << i << endl;
+}
 
 
+### while-loop code- 
+
+Problem stat- Print all the multiples of 5 till 100
+
+```
+  int main() {
+
+  int i = 5;                                           // Initializer 
+  while( i <= 100) {                                   // Condition 
+    cout << i << endl;                                 // Operations 
+
+    i = i + 5;                                         // Increase 
+  }
+
+    return 0;
+
+}
+```
+
+### Comparison of for vs while loop- 
+int main() {
+  for(int i = 5; i <= 100; i = i+5) {
+      cout << i << endl;
+  }
 
 
+Whenever you write a while loop, always identify these three parts:
+
+Initialization → Where does it start?
+Condition → When should it continue?
+Update → How does it move toward stopping?
+
+If any one of these is wrong, the loop either gives wrong output or becomes an infinite loop.
 
 
-
-
-
-
-
+A image of i inside the loop and outside the loop where 105 is printed after 100 as i called i outside the loop also and then the condition got failed 
+![alt text](images/image-11.png)
 
 
 
@@ -998,7 +1314,15 @@ int main() {
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-1. **Arrays-**
+
+
+
+
+
+
+
+
+5. **Arrays-**
 
 An Array is an multiple values of the same type stored in contiguous memory locations.
 Arrays are containers where we can keep similar data types.
