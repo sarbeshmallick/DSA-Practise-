@@ -4,7 +4,7 @@
 
 /*
 int main() {
-  int num[5];                                 // As we have intilizaed an empty array but haven't define elemnets it will output garbage elemnets 
+  int num[5];                                 // As we have intilizaed an empty array but haven't define elements it will output garbage elemnets 
   for(int i = 0; i <= 4; i++) {               // Initally we call empty array but then define elements like if int num[3] = {2, 1, 7};
     cout << num[i] << "\n";         
   }        

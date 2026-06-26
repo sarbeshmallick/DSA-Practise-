@@ -78,3 +78,44 @@ When user enter values:
 it get stored inside--   cin >> num[i];        // user input gets stored in those boxes 
 
 */
+
+
+
+
+
+/*
+
+why num[i] is written in cout << num[i] << "\n";  and not only num[]  ?
+
+[] -> this cannot be empty 
+
+i just auotmates the task or else we have to write everything manually like:
+
+instead of writing:
+cout << num[0] << endl;
+cout << num[1] << endl;
+cout << num[2] << endl;
+cout << num[3] << endl;
+cout << num[4] << endl;
+
+we write:
+cout << num[i];          // one line 
+
+
+if i write num[4] instead of num[i]:
+cout << num[4];                 // {5,2,1,3,7}
+
+- it will display 7 (5 times)
+  7
+  7
+  7
+  7
+  7
+
+
+
+i is not only the loop counter, and its current value is used as the array index.
+So i isn't just counting—it also tells the program which element of the array to access on each iteration. This is why for loops and arrays are so commonly used together.
+
+
+*/

@@ -1,21 +1,27 @@
 
-
+/*
+Problem statement- 
+Create an array of 5 integers.
+Ask the user to enter numbers.
+Store each number in the correct index.
+Immediately print the number that was entered.
+*/
 
 
 #include <iostream>
 using namespace std;
 
-int main() {
-  int num[5];  
+int main() {                                   //  1 2 3 4 5 
+  int num[5]; 
   
   cout << "enter your numbers: ";                                        // write cout before you type for loop for arrays 
 
-  for(int i = 0; i <= 4; i++) {  
+  for(int i = 0; i < 5; i++) {  
     cin >> num[i];                  
     cout << num[i] << endl;                             
   }
 
-  cout << num[5-1];            // Arrays last element will be num[size - 1] where size = n           //a better ver-  cout << "Last element: " << num[n - 1];
+  cout << num[5-1];                // Arrays last element will be num[size - 1] where size = n           //a better ver-  cout << "Last element: " << num[n - 1];
                               
     return 0;
 }

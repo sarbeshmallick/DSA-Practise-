@@ -1328,27 +1328,68 @@ An Array is an multiple values of the same type stored in contiguous memory loca
 Arrays are containers where we can keep similar data types.
 
 For an array of size 5-
-Index: 0 1 2 3 4
+Index: 0  1   2  3  4
 Value: 10 20 30 40 50
 
 First index = 0
 Last index = n - 1
 
-For size 5 , Last index = 4
-For size 10 , Last index = 9
+
+
+For size 5 , First index = 0, Last index = 4
+For size 10, First index = 0, Last index = 9
+
+
 
 Accessing elements-
 arr[0]
 arr[2]
 arr[4]
 
+arr[2] is the index position 
+
+arr[5] = {10, 20, 30, 40, 50};              // example   
+Think of an array as a row of boxes:
+Index:    0     1     2     3     4
+        +----+----+----+----+----+
+Array:  | 10 | 20 | 30 | 40 | 50 |
+        +----+----+----+----+----+
+
+Now,
+arr[0] → element at index 0 → 10
+arr[2] → element at index 2 → 30
+arr[4] → element at index 4 → 50
+arr[5] -> dosen't exists 
+
+
+
+
+int arr[5];   
+- it means size of 5 -> the array that can store 5 elements 
+- Valid indices = 0 to 4
+So:
+✅ arr[0]
+✅ arr[1]
+✅ arr[2]
+✅ arr[3]
+✅ arr[4]
+❌ arr[5] (invalid, because index 5 doesn't exist)
+
+arr[2] means Give me the element stored at index 2.
+
+
+
+
+
+
 ## Traversal-
 for(i = 0; i < n; i++)
 Think that, I am visiting every element exactly once
 
+
 ### Common mistake-
 
-Suppose size is 5
+Suppose size is 5 ->  int arr[5]
 arr[0]
 arr[1]
 arr[2]                 **arr[] -> This is Index**
@@ -1363,6 +1404,8 @@ This is Invalid. This is called **Out of bounds access**
 num[0] -> 0 positions away from start
 num[1] -> 1 position away from start
 num[2] -> 2 positions away from start
+- []    -> array initilization. int arr[] , int num[] ,  int sarbesh[] all works. 
+
 
 
 First index  =  0
@@ -1373,6 +1416,46 @@ Number of elements = size
 ### For any array:
 first index = 0
 last index  = size - 1
+
+
+### Declaring an Array:
+
+data_type array_name[size]  =  {};
+
+int arr[5] = {..};
+
+There are three parts:
+int arr[5];
+│   │   │
+│   │   └── Size
+│   └────── Array name
+└────────── Data type
+
+
+- I can name any array name according to my choice 
+int sarbesh[5];
+int marks[100];
+int ages[10];
+int scores[20];
+
+cout << sarbesh[4];  ->  output element of index 4 or the last element 
+
+
+- Array can store any data type also & not  only int 
+long population[10];
+float temperature[7];
+double salary[20];
+char grade[5];
+bool passed[50];
+string names[10];     // string array 
+
+
+data_type   array_name   [size]
+    │            │          │
+ What it stores  Its name   Capacity
+
+
+  
 
 
 ### A concept to talk-
@@ -1391,17 +1474,101 @@ return 0;          // Output- 0x61ff0c        - this is memory address where 5 i
 }
 ```
 
+
 ### How we declare arrays (structure)-
 data type  variable [how many elements that array have] - 
 int num[5];        - it figures out 1st,2nd,3rd,4th,5th memory address & binds them & keep it contagious - that's 5 contagious memory location 
 - every memory location can store an integer & we hv 5 memory locations & all of 5 locations can store integer 
 
+**A small terminology tip:**
+People often get confused because of counting:
+
+Array size = 5
+Elements = 5
+Indices = 0, 1, 2, 3, 4
+
+So:
+The 5th element is num[4]. ✅
+num[5] is actually trying to access the 6th element, which does not exist. ❌
+
 
 
 &  -> shows the memory location 
+&  -> The & operator is called the address-of operator.
 
 let's say datatype of int num = 5;
 cout << &num;     -> it shows the memory location of variable num stored as integer data type 
+
+
+
+### Difference- 
+
+how int a = 10;  and   int b[] = {10};    are different 
+- int a = 10 means create one box & store 10
+- Create an array with one box, and store 10 in the first (and only) element.
+-  Variable -> One Box , no index needed 
+-  Array -> Many boxes , index needed 
+
+**Output diff:**
+cout << a;            // 10
+cout << b[0];         // 10
+
+
+
+int marks[] = {90, 85, 78};    equals to    int marks[3] = {90, 85, 78};
+- Remember array size = elements 
+- [] = {}
+- index is -1 always 
+![alt text](images/image-12.png)
+zero filling -> ![alt text](images/image-13.png)
+mistake to avoid -> ![alt text](images/image-14.png)
+trick to remember -> ![alt text](images/image-15.png)
+
+
+
+
+### Rule to Remember- 
+For an array of size n:
+for (int i = 0; i < n; i++)
+
+
+
+## Arrays-tuf code- 
+
+Problem statement- 
+Create an array of 5 integers.
+Ask the user to enter numbers.
+Store each number in the correct index.
+Immediately print the number that was entered
+
+```
+int main() {
+
+    int num[5];
+
+    cout << "Enter 5 numbers: ";
+
+    for (int i = 0; i < 5; i++) {
+      cin >> num[i];
+      cout << num[i] << endl;
+    }
+
+
+    return 0;
+}
+```
+Input-> 10 20 30 40 50 
+
+Output-
+10
+20
+30 
+40
+50 
+
+
+
+
 
 
 ## Arrays-print5-nos code- 
@@ -1445,12 +1612,25 @@ it get stored inside--   cin >> num[i];        // user input gets stored in thos
 
 
 
+### Remember-
+
+if we want our output to come horizontally we have to use   " " 
+cout << num << " "; 
+
+for vertical output we use endl or "\n" 
+
+
+
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
-**Strings-**
+
+
+6. **Strings-**
 
 we use string instead of char because char allows single letter or single symbols and string allows multiple letters 
 char -> Stores one character
@@ -1762,7 +1942,7 @@ getline(cin, ?);       -   // ? is the varibale
 
 
 
-**Functions-**
+7. **Functions-**
 
 Imagine you hv- 
 - take 2 numbers
