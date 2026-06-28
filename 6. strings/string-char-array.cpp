@@ -3,6 +3,15 @@
 // Strings 
 
 /*
+Problem stat- 
+Problem Statement: Given a string, print each character of the string using a for loop.
+Problem Statement: Traverse a string character by character and print each character.
+Problem Statement: Given a string, access and print each character using its index.
+Problem Statement: Store a string and print all its characters by accessing them through their indices.
+
+*/
+
+/*
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -34,9 +43,19 @@ int main() {
 
     string str = "sarbesh";
     int length = str.size();
-    for(int i = 0; i <= length - 1; i++) {
+    for(int i = 0; i <= length; i++) {                // alt-     for(int i = 0; i <= str.length(); i++) 
     cout << str[i];                                   // if i just do cout << str;  then i will get 7 times sarbeshsarbeshsarbeshsarbeshsarbeshsarbeshsarbeshsarbesh
     }
-
+    
     return 0;
 }
+
+
+
+/*
+
+str[i]   -  Give me the character stored at index i , each iteration and together it becames sarbesh 
+str      -  means the entire string, not a single character. Every iteration prints sarbesh and loop runs 7 times i.e sarbeshsarbeshsarbeshsarbesh....
+
+
+*/

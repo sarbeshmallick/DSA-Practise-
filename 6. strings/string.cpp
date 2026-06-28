@@ -1,3 +1,6 @@
+
+// initialize a varibale name str that contains Sarbesh can do it 
+
 #include <iostream>
 using namespace std;
 
