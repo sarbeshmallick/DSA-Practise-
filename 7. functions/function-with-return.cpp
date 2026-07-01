@@ -85,7 +85,7 @@ The Analogy: You give a worker money and ask them to buy a coffee (int buyCoffee
 
 Code-
 int add(int a, int b) {
-    return a + b;  // This hands the answer back to main()
+    return a + b;          // This hands the answer back to main()
 }
 
 With void (No Return),                                         With int (Using return)

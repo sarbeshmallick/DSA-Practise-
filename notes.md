@@ -2100,7 +2100,8 @@ Imagine you hv-
 If you need this logic 10 times, you hv to write it 10 times.
 Instead, **Functions let you Write once, reuse many times**
 
-main() is itself an function     -   int main()
+main() - entry point of the code & the first function that the operating system calls when your program starts.
+
 
 - A function is a block of code that does a specific task. We write it once and call it whenever we need it.
 It's like a "helper" or a "servant". We teach the servant how to make tea once, and then just order "Make Tea" anytime.
@@ -2108,6 +2109,16 @@ Functions keep our code clean and reusable
 
 int main() is the entry point of cpp code 
 void main() - it is a self function where it will do something but will not return anything
+void main() is a non-standard and should not be used, even though some old compilers accept it.
+
+
+### Difference btw function & loop- 
+- Now the function contains the logic, and the loop decides how many times to run it
+- Function → What to do
+  Loop → How many times to do it
+- we can use loop and functions togerther 
+
+
 
 
 ## Code-
@@ -2123,7 +2134,11 @@ int main() {
 }
 ```
 
+
 ## functions code-
+
+Problem statement- Write a C++ program to create a user-defined function print() that prints a message, and call it from the main() function.
+
 ```
 #include <iostream>
 using namespace std;
@@ -2187,9 +2202,42 @@ program always starts from int main()  and not from print()
  After the function finishes,
  control returns to the caller.
 
+
+### Remember- 
 void means it returns nothing, its job is only to print something or doing something 
 void dosen't return values to int main() , it just does it job and shows it and exits 
 like void add() prints the cout but dosen't hand anything to main()
+
+
+
+
+
+
+### Remember- 
+- void function er modhye sob sob logic , statements thkbe, I just need to call it and ota execute hbe 
+- but returning function e amke return kichu krte hbe to int main() caller and shey decide krbe ki krte hbe returned value niye, shey chaile cout lrte pare ki add
+  
+- eg:  void add() {
+        cout << 6;
+        logic...
+      }
+      
+      add();           ✔    // void function ke call krlam and it will execute whatever logic i had written inside the void add() {}
+      cout << add();  ❌   // not possible 
+
+
+
+- eg:   int add() {
+        cout << 6;
+        return 5;
+      }
+      
+       add();                 // 6 will get printed, 
+       cout << add();         // then 6 & 5 both will get printed 
+       cout << add() + 5;     // 10 will get printed (5+5)
+
+
+
 
 
 ### Understanding-functions Code-
@@ -2213,6 +2261,45 @@ int main() {
 ```
 cout << 6;     -  Show 6 on the screen
 return 5;      - Give 5 back to the caller & caller will decide what do with it 
+
+
+
+### Explanation- 
+- Cpp starts from main()
+- The add() function is not executed yet. Think of add() as a worker waiting for instructions.
+- Execution reaches "Before print function call" and shows the same as output 
+- Now, execution reaches  cout << add() << endl;
+- cout dosent print first, it pauses and jumps to see what's the value of add()
+- think of it like:
+  main()
+   ↓
+cout << add();
+   ↓
+  Wait...
+ I need to know add()
+   ↓
+Go to add()
+
+- As now we are inside 
+   int add() {
+   cout << 6 << endl;          // prints 6 
+    return 5;                  // This does NOT print 5. It returns the value to the caller.
+  } 
+
+- now the program comes back to the   cout << add() << endl;
+- the computer replaces add() with 5   so it becomes   cout << 5 << endl;   which prints 5 
+
+
+
+
+### Example explanation- 
+
+int square()
+{
+    return 25;
+}
+square();                ❌       // Nothing gets printed, Because nobody is using the returned value. The function simply returns 25, and then it's discarded.
+cout << square();        ✔        // Now, 25 gets printed 
 
 
 
@@ -2280,13 +2367,14 @@ The important thing is what does the function does inside its body
 
 
 - Never write code after return as the function has already exited 
-- in void function everything happens inside and main gets nothing, whatever u want do with void u do it inside void and just call it 
-- in functions, u do the math or whatever and give it to main and main will further do processing or just print it 
+- in void function everything happens inside and main gets nothing, whatever u want do with void u do it inside the void and just call it when reqd.
+- in returning functions, u do the math or whatever and give it to main and main will further do processing or just print it 
   
 - void -> Includes everything under it 
-- function -> just do basic thing and return to main caller and the main will handle the rest 
+- returning function -> just do basic thing and return to main caller and the main will handle the rest 
 
 - with void whatever we do and if we print results, it just get printed and lost we cannot usally use it later in different way 
+
 
 
 ### Let's take an example of void & return-
@@ -2331,6 +2419,7 @@ This isn't a strict rule, but it's a very useful beginner mental model.
 
 
 - A printed value is visible to the user. A returned value is usable by the program.
+
 
   
 ### return-function-user code-   (User Input)

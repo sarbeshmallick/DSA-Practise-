@@ -1,17 +1,9 @@
 
 
 // Functions 
+// Problem statement- Write a C++ program to create a user-defined function print() that prints a message, and call it from the main() function.
 
 /*
-
-A function is a block of code that does a specific task. We write it once and call it whenever we need it.
-It's like a "helper" or a "servant". We teach the servant how to make tea once, and then just order "Make Tea" anytime.
-Functions keep our code clean and reusable.
-
-int main() is the entry point of cpp code 
-
-void main() - it is a self function where it will do something but will not return anything 
-
 
 #include <iostream>
 using namespace std;
@@ -21,11 +13,10 @@ void print() {
 int main() {
     
     return 0;                                                  // It will return nothing or print nothing , for that we need to call print() after int main()
-}
-
-
-
+}                                                              // The print() function exists, but it won't execute until we call it from main() or another function.
+                                                                                                                  
 */
+
 
 
 #include <iostream>
@@ -40,11 +31,14 @@ int main() {
     cout << "Before print function call" << endl;
 
     print();                                                    // Whenver the function is called, its get a priority, it will be executed first & then reamining lines
-                                                                
+                                                            
     cout << "After print function call" << endl;
     
     return 0;
 }
+
+// Whenever a function is called, program control temporarily transfers to that function. After the function finishes execution, control returns to the statement immediately following the function call
+
 
 /*
 
