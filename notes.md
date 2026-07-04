@@ -2214,7 +2214,7 @@ like void add() prints the cout but dosen't hand anything to main()
 
 
 ### Remember- 
-- void function er modhye sob sob logic , statements thkbe, I just need to call it and ota execute hbe 
+- void function er modhye sob logic , statements thkbe, I just need to call it and ota execute hbe 
 - but returning function e amke return kichu krte hbe to int main() caller and shey decide krbe ki krte hbe returned value niye, shey chaile cout lrte pare ki add
   
 - eg:  void add() {
@@ -2269,7 +2269,7 @@ return 5;      - Give 5 back to the caller & caller will decide what do with it
 - The add() function is not executed yet. Think of add() as a worker waiting for instructions.
 - Execution reaches "Before print function call" and shows the same as output 
 - Now, execution reaches  cout << add() << endl;
-- cout dosent print first, it pauses and jumps to see what's the value of add()
+- cout dosen't print first, it pauses and jumps to see what's the value of add()
 - think of it like:
   main()
    ↓
@@ -2377,6 +2377,86 @@ The important thing is what does the function does inside its body
 
 
 
+### Promise- 
+
+- when we write returning function, by default it promises it will return something to caller.
+- but when we don't return something, and only call the function that's still  okay, it executes logic inside the function but dosen't return anything. 
+- but if we cout << function-name();  then it will provide a garbage value because int function-name() promised to return an integer value which it failed 
+- a function task is to deliver the return value to main() caller, and main caller will decide what to do 
+- a return type function will always return something except void 
+  
+1.  int add() {
+  return 5;                              // returns an integer 
+ }
+  cout << add();                         // Output- 5 
+
+2.  int age() {
+    return 20;                          // returns a character.
+   }
+
+3.  double pi() {
+    return 3.14;                        // returns a decimal number.
+   }
+
+4.  string name() {
+    return "Sarbesh";                   // returns a string.
+   }
+
+5. char grade() {
+    return 'A';                         // returns a character 
+   }
+ 
+But
+
+6. void print() {
+    cout << "Hello";                   // returns nothing 
+}
+
+
+
+
+### 3 Cases- 
+1. ![alt text](images/image-16.png)
+2. ![alt text](images/image-17.png)
+3. ![alt text](images/image-18.png)
+
+![alt text](images/image-19.png)
+
+
+
+
+## Does only int main() expects a return?
+Ans- NO 
+
+- The code that calls a function receives its return value.
+- It doesn't have to be main().
+- for example- 
+```
+#include <iostream>
+using namespace std;
+
+int add() {
+    return 5;
+}
+
+void printNumber() {
+    cout << add();                      // Here, printNumber() is calling add()
+}
+
+int main() {
+    printNumber();
+
+    return 0;
+
+}
+```
+Output- 5 
+In this case, printNumber() receives the value 5, not main() directly.
+
+
+
+
+
 ### Let's take an example of void & return-
 
 **My Current function with void-**
@@ -2421,14 +2501,355 @@ This isn't a strict rule, but it's a very useful beginner mental model.
 - A printed value is visible to the user. A returned value is usable by the program.
 
 
+
+## Operator Precedence (BODMAS / PEMDAS)- 
+
+C++ follows the same order of operations as Mathematics (BODMAS/PEMDAS).
+
+### Precedence Order
+1. Parentheses `()`
+2. Multiplication `*`, Division `/`, Modulus `%`
+3. Addition `+`, Subtraction `-`
+
+### Example 1
+
+```cpp
+cout << num1 + num2 * 10;
+```
+
+Input:
+```
+num1 = 1
+num2 = 2
+```
+
+Evaluation:
+```
+1 + 2 * 10
+= 1 + 20
+= 21
+```
+
+**Output:** `21`
+
+> Multiplication is performed before addition.
+
+
+---
+
+### Example 2
+
+```cpp
+cout << (num1 + num2) * 10;
+```
+
+Evaluation:
+```
+(1 + 2) * 10
+= 3 * 10
+= 30
+```
+
+**Output:** `30`
+
+> Parentheses have the highest priority, so the addition is performed first.
+
+---
+
+### Key Takeaways
+
+- C++ follows BODMAS/PEMDAS rules.
+- Multiplication and division have higher precedence than addition and subtraction.
+- Use parentheses `()` whenever you want a specific part of the expression to be evaluated first.
+- > 💡 Tip: If you're ever unsure about the order of evaluation, use parentheses `()`. They make the code easier to read and prevent logical mistakes.
+
+
+
+
+
+### Conceptual Clarity- 
+
+> Structure of any function-
+ return_type function_name(parameters)
+
+
+1. void is also a return type , it just that it is a special return type where function returns nothing.
+2.  every function has a return type 
+   int add()      ->  returns an integer | return type = int 
+   double area()  ->  returns a decimal  | return type = doule 
+   void add()     -> returns nothing     | return type = void 
+
+3. void return also have parameters like other return types-
+    
+  A.  **Void function without parameters-**
+        void greet() {
+        cout << "Hello";
+       }
+  Returns nothing, Takes nothing.
+
+
+  B. **Void function WITH parameters-**
+       void add(int a, int b) {
+       cout << a + b;
+     }
+   
+  Notice now, (int a, int b) are paramters 
+  Now you call-
+  add(10, 20); 
+  Output- 30 
+
+
+
+4. int function with & without parameters 
+   
+ A.  **No params-** 
+      int getNumber() {
+      return 5;
+     }
+
+No parameters, Returns an integer.
+
+
+ B.  **With params-**
+      int add(int a, int b) {
+      return a + b;
+     }
+
+It takes both- 
+✔ takes parameters
+✔ returns a value
+
+
+
+### Example- 
+
+void add2nos(int num1, int num2)
+- Now the parameter list isn't empty anymore—the function receives num1 and num2 from whoever calls it.
+
+For example:
+add2nos(10, 20);
+
+>Here:
+int num1, int num2 are parameters (they're defined in the function).
+10, 20 are arguments (the actual values you pass when calling the function).
+
+
+
+### chatgpt example of functions/void- 
+```
+#include <iostream>
+using namespace std;
+
+void first() {
+    cout << "1";
+}
+
+int second() {
+    cout << "2";
+    return 3;
+}
+
+int main() {
+
+    cout << "A";
+
+    first();
+
+    cout << second();
+
+    cout << "B";
+
+    first();
+
+    cout << second();
+
+    cout << "C";
+
+    return 0;
+}
+```
+Output - A123B123C
+
+
+### Another one from chatgpt- 
+```
+#include <iostream>
+using namespace std;
+
+int fun() {
+    cout << "A";
+    return 5;
+}
+
+int main() {
+
+    cout << fun() + fun();
+
+    return 0;
+}
+```
+Output- AA10 
+
+> Why its not A5A5 
+- when we write,   return 5   the function is giving 5 back to the caller. It is not displaying 5.
+- Only this line prints 5 (or any returned value):
+    cout << fun();
+- In your program, you wrote:
+    cout << fun() + fun();
+- So the two returned values are added first, and then the result is printed.
+
+> cout prints. return sends a value back.
+
+
+
+
+
+### function-addition modified usinf for loop and void combined- 
+
+Problem stat- 
+Write a C++ program to create a void function that accepts
+two integers and prints their sum. Use a for loop to call
+the function multiple times and demonstrate code reusability all using void 
+
+```
+#include <iostream>
+using namespace std;
+
+void add2nos() {
+  int num1, num2;
+  cout << "Enter 2 numbers: ";
+  cin >> num1 >> num2;
+  cout << "The sum of 2 numbers is: " << num1 + num2 << endl;
+}
+
+int main() {
+
+  for (int i = 1; i < 3; i++) {
+    add2nos();
+  }
+
+  return 0;
+}
+```
+
+
+
+### function-addition-loop-void code- 
+
+Problem stat- 
+Write a C++ program to create a void function that accepts two integers and prints their sum.
+Ask the user how many times the function should be executed, then use a for loop to call the function that many times. Demonstrate code reusability using a void function.
+
+```
+#include <iostream>
+using namespace std;
+
+void add2nos() {
+   
+  int num1, num2;
+  cout << "Enter 2 numbers: ";
+  cin >> num1 >> num2;
+  cout << "The Sum of 2 numbers is: " << num1 + num2 << endl;
+ } 
+
+int main() {
+   
+  int n;
+  cout << "How many times do you want to add two numbers? ";
+  cin >> n;
+
+  for (int i=0; i < n; i++) {
+    add2nos();
+  }
+
+    return 0;
+
+}
+```
+
+> Enhancements- 
+
+instead of How many times do you want to add two numbers?
+we can write:
+How many times do you want to perform the addition?   OR   How many pairs of numbers do you want to add?
+
+> What if someone enters -5 ?
+Your program simply ends. It isn't wrong, but it isn't very user-friendly.
+A nicer program would validate the input.
+
+if (n <= 0) {
+    cout << "Please enter a positive number.";
+}
+else {
+    for (int i = 0; i < n; i++) {
+        add2nos();
+    }
+}
+
+
+
+> code is- 
+int main() {
+   
+  int n;
+  cout << "How many times do you want to add two numbers? ";
+  cin >> n;
+
+  if (n <= 0){
+    cout << "Enter a positive number!";
+  }
+
+  else {
+
+  for (int i=0; i < n; i++) {
+    add2nos();
+   }
+
+  }
+    return 0;
+
+}
+
+
+### Same code & problem statement but with pair counter- 
+```
+int main() {
+   
+  int n;
+  cout << "How many times do you want to add two numbers? ";
+  cin >> n;
+
+  if (n <= 0){
+    cout << "Enter a positive number!";
+  }
+
+  else {
+
+  for (int i=0; i < n; i++) {
+    cout << "Pair " << i + 1 << endl;                              // Pair Counter 
+    add2nos();
+   }
+
+  }
+    return 0;
+}
+```
+
+
+
+
+
+----------------------------------
+
+
+
   
 ### return-function-user code-   (User Input)
-Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return 
+Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return function 
+
 ```
 int add(int a, int b) {
-
-  return a + b;
-
+    return a + b;
 }
 
 int main() {
@@ -2446,8 +2867,10 @@ int main() {
 }
 ```
 
+
+
 ### return-function-harcoded code-    (Hard Coded)
-Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return 
+Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return function 
 ```
 int add(int a, int b) {
   return a + b;

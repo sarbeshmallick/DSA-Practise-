@@ -1,7 +1,7 @@
 
 // Functions 
 
-// Problem Statement- write a program that accepts numbers and print summation of 2 numbers and again take 2 number and print it 
+// Problem Statement- write a program that accepts numbers and print summation of 2 numbers and again take 2 number and print it using void 
 
 // user dynamic input 
 
