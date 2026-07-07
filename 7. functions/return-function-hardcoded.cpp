@@ -2,7 +2,7 @@
 
 // Function using return 
 
-// Problem Statement- write a program that accepts numbers and print summation of 2 numbers and their multiplication 
+// Problem Statement- write a program that accepts numbers of 10 & 20 and print summation of 2 numbers and their multiplication with 20 and we store the sum into variable  
 
 // Hardcoded values 
 

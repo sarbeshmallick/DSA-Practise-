@@ -1,7 +1,8 @@
 
-
-
 // paramterized functions using void 
+
+// Problem statement- Write a C++ program that creates a parameterized void function to greet a person by name. Call the function multiple times with different names.
+
 
 #include <iostream>
 using namespace std;
@@ -25,7 +26,7 @@ int main() {
 
 /*
 
-Old code when no endl is given inside void so the name was priniting on same line and i cleverly wrote cout << endl; in code 40
+Old code when no endl is given inside void so the name was priniting on same line and i cleverly wrote cout << endl;   in code 10
 #include <iostream>
 using namespace std;
 

@@ -2,7 +2,7 @@
 
 // Function using return 
 
-// Problem Statement- write a program that accepts numbers and print summation of 2 numbers and again take 2 number and print it 
+// Problem Statement- write a program that accepts numbers and print summation of 2 numbers and multiply the sum with 10 and print it using return function 
 
 
 
@@ -11,10 +11,12 @@ using namespace std;
 
 // This function ONLY does math. It takes two inputs and returns the answer.
 int add(int a, int b) {
+
     return a + b;
 }   
 
 int main() {
+    
     int num1, num2;
     
     cout << "Enter two numbers: ";

@@ -2704,7 +2704,7 @@ Output- AA10
 
 
 
-### function-addition modified usinf for loop and void combined- 
+### function-addition modified using for loop and void combined- 
 
 Problem stat- 
 Write a C++ program to create a void function that accepts
@@ -2734,7 +2734,7 @@ int main() {
 
 
 
-### function-addition-loop-void code- 
+### function-addition-loop-void-user-dynamic code- 
 
 Problem stat- 
 Write a C++ program to create a void function that accepts two integers and prints their sum.
@@ -2751,6 +2751,7 @@ void add2nos() {
   cin >> num1 >> num2;
   cout << "The Sum of 2 numbers is: " << num1 + num2 << endl;
  } 
+
 
 int main() {
    
@@ -2813,6 +2814,14 @@ int main() {
 
 ### Same code & problem statement but with pair counter- 
 ```
+void add2nos() {
+   
+  int num1, num2;
+  cout << "Enter 2 numbers: ";
+  cin >> num1 >> num2;
+  cout << "The Sum of 2 numbers is: " << num1 + num2 << endl;
+ } 
+
 int main() {
    
   int n;
@@ -2837,15 +2846,86 @@ int main() {
 
 
 
+### Concept of Single Responsibility principle- 
+
+- Right now add2nos() does input, calculation & output
+- Later, in larger programs, it's often better to separate responsibilities. For example:
+One function reads input.
+One function calculates.
+One function prints.
+
+void inputNumbers(int &num1, int &num2)
+{
+    cout << "Enter 2 numbers: ";
+    cin >> num1 >> num2;
+}
+
+int calculateSum(int num1, int num2)
+{
+    return num1 + num2;
+}
+
+void printSum(int sum)
+{
+    cout << "The sum is: " << sum << endl;
+}
+
+> 3 function does seperate things- 
+input 
+calculate & return
+print
 
 
-----------------------------------
+
+> Actual Code for SRP here- 
+```
+#include <iostream>
+using namespace std;
+
+// Function 1: Read input
+void inputNumbers(int &num1, int &num2) {
+    cout << "Enter 2 numbers: ";
+    cin >> num1 >> num2;
+}
+
+// Function 2: Calculate the sum
+int calculateSum(int num1, int num2) {
+    return num1 + num2;
+}
+
+// Function 3: Print the result
+void printSum(int sum) {
+    cout << "The sum is: " << sum << endl;
+}
+
+int main() {
+
+    int num1, num2;
+    int sum;
+
+    inputNumbers(num1, num2);
+
+    sum = calculateSum(num1, num2);
+
+    printSum(sum);
+
+    return 0;
+}
+```
+
+
+
+
+
+---------------------------------------
+
+
 
 
 
   
 ### return-function-user code-   (User Input)
-Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return function 
+Problem Statement- write a program that accepts numbers and print summation of 2 numbers & multiply the sum with 10 and print it. Store the sum in a variable 
 
 ```
 int add(int a, int b) {
@@ -2868,9 +2948,36 @@ int main() {
 ```
 
 
+> Modifications- storing sum & multiplied value into different variables
+```
+int add(int a, int b) {
+  return a + b;
+}
+
+
+int main() {
+
+  int num1, num2;
+  cout << "Enter 2 numbers: ";
+  cin >> num1 >> num2;
+
+  int sum = add(num1, num2);
+  int result = sum * 10;
+
+  cout << "The sum of 2 numbers is: " << sum << endl;
+  cout << "Multiplying sum with 10: " << result << endl;
+
+    return 0;
+
+}
+```
+
+
+
 
 ### return-function-harcoded code-    (Hard Coded)
-Problem Statement- write a program that accepts numbers and print summation of 2 numbers and print it using return function 
+Problem Statement- write a program that accepts numbers of 10 & 20 and print summation of 2 numbers and their multiplication with 20 and we store the sum into variable
+
 ```
 int add(int a, int b) {
   return a + b;
@@ -2924,10 +3031,22 @@ Now the function can work with any name.
 
 
 
-## Parameterized-void-function code-
-```
-// paramterized functions using void 
+()        ->  Empty parantheses  -> meaning no info passing into the function  ->  Means the function needs nothing from the outside 
+(params)  ->  from now on we  will put some info  
 
+> for eg:
+void greet(string name)    ->   parantheses are not empty, () contain string name, means Before I can do my work, you must give me one string
+
+
+
+
+
+## Parameterized-void-function code-
+
+// paramterized functions using void 
+Problem stat- Write a C++ program that creates a parameterized void function to greet a person by name. Call the function multiple times with different names.
+
+```
 #include <iostream>
 using namespace std;
 
@@ -2949,7 +3068,7 @@ int main() {
 
 ### Old Code of the above- 
 
-Old code when no endl is given inside void so the name was priniting on same line and i cleverly wrote cout << endl; in code line 1311
+Old code when no endl is given inside void so the name was priniting on same line and i cleverly wrote cout << endl; in code line 3042
 
 ```
 void greet(string name) {
@@ -3002,6 +3121,67 @@ cout << "Hello " << name;
          greet("Sarbesh");
 
 Output-   Hello Sarbesh 
+
+
+
+
+### Explanation again a bit- 
+
+Why is it called a parameterized function?
+- Because the function accepts a parameter.
+
+void greet(string name)
+
+Here, string name is called the parameter.
+When calling- 
+greet("Sarbesh");   then "Sarbesh"   is called the argument.
+
+
+So:
+
+void greet(string name)
+
+name → parameter
+
+greet("Sarbesh");
+
+"Sarbesh" → argument
+
+
+There is only one variable called **name**
+But we got:
+Hello Sarbesh
+Hello Anu
+
+Why?
+Because every time you call the function,
+greet(...)
+the parameter receives a new value.
+
+
+One thing I'd like you to notice, Earlier you asked:
+
+"Can I name num1 and num2 as a and b?"
+Exactly the same rule applies here.
+This:
+
+1. void greet(string name)    could also be 
+2. void greet(string x)
+or
+3. void greet(string person)
+or
+4. void greet(string studentName)
+
+All are valid.
+For example:
+
+void greet(string studentName) {
+    cout << "Hello " << studentName << endl;
+}
+
+works exactly the same.
+The compiler only cares about the type (string), not the variable name.
+
 
 
 
@@ -3104,12 +3284,354 @@ Function Name : add
 Input Type    : int, int
 Variable Name : a, b
 
-- The pattern is always-> 
-return_type function_name(parameter_type parameter_name)
+- The pattern is always->
+   
+return_type  function_name(parameter_type parameter_name)
 
 
 
------------------------------------------------------------------
+
+
+### Notice the differences btw 2 codes and read the logic- 
+
+1. code 1-
+```
+void greet(string name) {
+    cout << "Hello " << name << endl;
+}
+
+int main() {
+
+    string person = "Rahul";
+
+    greet(person);
+
+    return 0;
+}
+```
+
+> Output- Hello Rahul 
+
+
+
+2. Code 2- 
+```
+void greet(string name) {
+    cout << "Hello " << name << endl;
+}
+
+int main() {
+
+    string person = "Rahul";
+
+    greet("person");
+
+    return 0;
+}
+```
+> Output- Hello person 
+
+
+
+### Passing Variables vs String Literals- 
+
+There is a difference between:
+
+greet(person);
+
+and 
+
+greet("person");
+
+
+Suppose:
+
+string person = "Rahul";
+
+- greet(person); → passes the VALUE stored in the variable (`"Rahul"`).
+- greet("person"); → passes the literal string `"person"`.
+
+Output:
+greet(person);     → Hello Rahul
+greet("person");   → Hello person
+
+**Variables pass their stored value, not their variable name.**
+
+
+
+
+3. Code 3- 
+```
+void greet(string name) {
+    cout << "Hello " <<  name << endl;
+}
+
+
+int main() {
+
+  string x = "Sarbesh";
+  string y = "Anu";
+
+  greet("x");
+  
+  greet(y);
+
+    
+    return 0;
+}
+```
+> Output - 
+Hello x
+Hello Anu
+
+
+Notice:
+greet(x);     means      "Go look inside the variable."
+
+Whereas
+greet("x");   means   "Don't look anywhere. Just use the word x."
+
+
+> Images for more example / clarification- 
+![alt text](images/image-20.png)
+![alt text](images/image-21.png)
+![alt text](images/image-22.png)
+
+
+
+### to more understand variable string part 
+
+code- 
+```
+void greet(string name) {
+    cout << "Hello " << name << endl;
+}
+
+int main() {
+
+    string person = "Rahul";
+
+    person = "Amit";
+
+    greet(person);
+
+    return 0;
+}
+```
+> Output- 
+Hello Amit 
+
+> Explanation- 
+
+person = "Amit";
+This does not create another variable. It changes the existing variable.
+
+Where is Rahul?
+Gone. It has been replaced.
+
+
+> Thing to remember- 
+Ealier i was thinking the varibale value will not get updated cuz of pass by value or reference...
+but NO, 
+Pass-by-value or reference  only starts after the function is called.
+
+
+
+### Let's take an another example- 
+
+code-
+
+```
+void greet(string name) {
+  name = "Rohit";
+  cout << name << endl;
+}
+
+int main() {
+
+  string person = "Amit";
+  greet(person);
+  cout << person << endl;
+}
+```
+
+> Output- 
+Rohit
+Amit 
+
+>  Explanation- 
+
+1. Before function call:
+main()
+person = Amit
+
+2. After function call:
+  
+greet(person);
+A copy is made.
+
+main()
+person = Amit
+
+greet()
+name = Amit
+
+
+3. Inside function:
+
+name = "Rohit";
+
+Memory now becomes:- 
+
+main()
+person = Amit
+
+greet()
+name = Rohit
+
+cout << name prints Rohit 
+
+> The function changed name NOT person
+Those are two different variables.
+
+4. Function ends. Everything inside greet() disappears. name is destroyed.
+
+5. Back to main()
+  The only variable left is person = Amit
+  cout << person;   // Amit is printed in last part of output 
+
+6. 
+greet() prints Rohit.
+main() prints Amit.
+
+
+
+
+
+### let's take a last example- 
+code- 
+
+```
+void greet(string name) {
+    name = "Charlie";
+    cout << "Inside function: " << name << endl;
+}
+
+int main() {
+
+  string person = "Alice";
+  greet(person);
+  cout << "Inside main: " << person << endl;
+
+  return 0;
+}
+```
+
+> Output- 
+Inside function Charlie 
+Inside main Alice 
+
+> Insights- 
+1. person contains Alice before function call
+2. name receives Alice
+3. inside function:  
+   Inside function Charlie got printed      cuz   name = "Charlie";   changed only name 
+4. inside main() after function call:
+   Inside main: Alice                       cuz   person never changed 
+   
+   
+
+
+### one intersting observation-
+
+void greet(string name) {
+    name = "Charlie";
+    cout << "Inside function: " << name << endl;
+}
+
+int main() {
+   string name = "Alice";
+  greet(name);
+  cout << "Inside main: " << name << endl;
+
+ return 0;
+}
+
+> Output- 
+Same output of previous one:
+
+Charlie
+Alice 
+
+
+> Observation- 
+
+- person varibale got changed to name variable inside main()
+- so inside void and isnide main both have variable named-  name 
+- but both name are not same varibales, they look identical but r not same 
+- Only the local copy changed inside void greet()  it became Alice to Charlie 
+- Function ends, everything inside void greet() disappears and only one variable left i.e Alice and that is printed as 2nd output inside main()
+- So no colliding of varibale value or variable name happens
+
+
+This is why changing one doesn't affect the other.
+main()
+
+name = Alice
+
+↓
+
+copy
+
+↓
+
+greet()
+
+name = Alice
+
+↓
+
+change
+
+↓
+
+greet()
+
+name = Charlie
+
+↓
+
+destroy
+
+↓
+
+main()
+
+name = Alice
+
+The original never changed.
+
+
+> Note- 
+## Local Scope in Functions
+
+- Variables with the same name can exist in different functions.
+- They do NOT refer to the same variable.
+- Each function has its own local scope.
+- When a function is called by value, a copy of the argument is created.
+- Changing the parameter inside the function does NOT change the original variable in `main()`.
+- When the function ends, only its local variables are destroyed. Variables in `main()` remain unchanged.
+
+
+
+
+
+
+-------------------------------------------------------------------
+
+
+
+
 
 
 **Paramerterized functions with returning functions-**
@@ -3152,7 +3674,7 @@ add(10,20)
 ↓
 returns 30
 ↓
-cout prints 30      // Output- 30 
+cout << add(10,20)      // prints 30      // Output- 30 
 
 
 2. Option2:- Store it 
@@ -3181,7 +3703,7 @@ cout << getName();                      // Output- Sarbesh
 
 
 ### Thing to Remember-
-In void output happens inside function and in returning output happens wherever we choose 
+In void output happens inside function  AND  in returning output happens wherever we choose 
 
 Void->
 void add(int a, int b) {
@@ -3201,6 +3723,8 @@ int add(int a, int b) {
 3. if(add(10,20) > 25)
 
 all works, whenever we want output we can do 
+
+
 
 
 
