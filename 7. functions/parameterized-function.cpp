@@ -46,9 +46,13 @@ if (res > 10) {
 
 
 
-in code line 11 and 12- 
+in code line 11 and 12-
+
+ int sumOfTwoNumbers (int num1, int num2) {
  int result = num1 + num2;
  return result;
+}
+
 
  we can write directly-
  int sumOfTwoNumbers (int num1, int num2) {                        

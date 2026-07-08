@@ -3728,6 +3728,208 @@ all works, whenever we want output we can do
 
 
 
+### revising practising parameterized return function- 
+prblm stat- Write a parameterized function that accepts two integers and returns their sum. Call the function from main() and print the returned value.
+
+```
+#include <iostream>
+using namespace std;
+
+
+int sum(int a, int b) {
+  return a + b;
+}
+
+int main() {
+
+  int res = sum(4,5) + 10;            // + 10 is not required as per prblm statement but just for concept =, it shows functions can be nested inside expressions 
+  cout << res << endl;
+
+  return 0;
+
+}
+```
+> output- 19
+> process- returns 9 -> 9+10 = 19
+
+> Time complexity- 
+return a + b;  takes constant time 
+time complexity-  O(1)
+
+
+
+
+### Challenge 1- 
+```
+int sumOfTwoNumbers(int a, int b)
+{
+    cout << "Inside function" << endl;
+    return a + b;
+}
+
+int main()
+{
+    cout << "A" << endl;
+
+    cout << sumOfTwoNumbers(2, 3) << endl;
+
+    cout << "B" << endl;
+
+    return 0;
+}
+```
+> Output- 
+A
+Inside function 
+5 
+B
+
+> Note-
+"Inside function" is printed by the cout inside the function, while 5 is printed by the cout inside main(), right
+
+
+
+
+
+### Challenge 2 - 
+```
+int add(int a, int b)
+{
+    cout << "Function Starts" << endl;
+    return a + b;
+}
+
+int main()
+{
+    cout << "A" << endl;
+
+    int x = add(2, 3);
+
+    cout << "B" << endl;
+
+    cout << x << endl;
+
+    cout << "C" << endl;
+
+    return 0;
+}
+```
+> Output- 
+A
+Function starts 
+B
+5 
+C 
+
+> N/B:-
+at exactly int x = add(2,3) function call happens 
+B is printed after the function finishes 
+cuz cout << x is after cout << "B"
+
+
+
+
+### Challenge 3- 
+```
+int add(int a, int b)
+{
+    cout << "Inside add()" << endl;
+    return a + b;
+}
+
+int main()
+{
+    cout << "Start" << endl;
+
+    cout << add(2, 3) + add(4, 5) << endl;
+
+    cout << "End" << endl;
+
+    return 0;
+}
+```
+
+> Output- 
+Start 
+Inside add()
+Inside add ()
+14 
+End 
+
+> Note- 
+- 2 times function call so, add() executes twice 
+- can you guess which function executed first?
+  
+  Ans- Ofc NO 
+  cout << add(2, 3) + add(4, 5);
+  the order in which the two function calls are evaluated is not guaranteed by the language.
+  That means the compiler is allowed to choose.
+  One compiler might do add(2,3) and then add(4,5)  -> 5 + 9
+  another compiler might do add(4,5) then add(2,3)  -> 9 + 5
+  both produce 14 because addition is commutative.
+
+- If we modify the code slightly we can predict which function got executed first 
+  
+ int add(int a, int b)
+ {
+    cout << "Adding " << a << " and " << b << endl;
+    return a + b;
+ }
+
+Now the output might be
+Compiler A:
+Start
+Adding 2 and 3
+Adding 4 and 5
+14
+End
+
+Compiler B:
+Start
+Adding 4 and 5
+Adding 2 and 3
+14
+End
+
+
+
+### Challenge 4- 
+```
+int add(int a, int b)
+{
+    cout << "Function\n";
+    return a + b;
+}
+
+int main()
+{
+    int x = add(2,3);
+
+    cout << x + 10 << endl;
+}
+```
+> Output- 
+ Function
+ 15 
+
+
+
+
+ > Remember--- 
+A function can do two independent things:
+
+1. It can print something using cout.
+2. It can return a value using return.
+
+These are completely different operations.
+
+- cout displays output on the screen.
+- return sends a value back to the caller.
+
+
+
+
+
 ## paramterized-return-function code-
 // Parameterized Functions using return 
 // Problem Statement- Write a function that returns addition of 2 numbers 
@@ -3742,7 +3944,7 @@ int sumoftownos(int num1, int num2) {
 
 int main() {
 
-  int res = sumoftownos(10, 20);                                // cout << sumoftownos(10, 20);   can also be used but we used this if we need sumoftownos multiple times 
+  int res = sumoftownos(10, 20);                         // cout << sumoftownos(10, 20);   can also be used but we used this if we need sumoftownos multiple times 
 
   cout << res;
     
@@ -3755,8 +3957,9 @@ int main() {
 int sumOfTwoNumbers(int num1, int num2)
 num1 and num2 are parameters 
 
-sumOfTwoNumbers(4, 5);
-4 and 5 are arugments 
+sumOfTwoNumbers(10, 20);
+10 and 20 are arugments 
+
 
 
 
@@ -3781,6 +3984,9 @@ int main() {
 can you see that we wrote x in    ( int y = add(x, 10); )
 we are passing 7 and not directly wrote 7
 as x contains 7 only 
+
+
+
 
 
 ## pass by value using void code- 
