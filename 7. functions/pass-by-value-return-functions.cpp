@@ -11,7 +11,7 @@ int change(int x) {
 
 int main() {
 
-int num = 10;                                                // Call started from here 
+int num = 10;                                               
 
 cout << change(num) << endl;
 cout << num;

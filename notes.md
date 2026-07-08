@@ -3988,6 +3988,36 @@ as x contains 7 only
 
 
 
+### revisiion paramterized function with multi variables code- 
+Prblm stat- Write a parameterized function that returns the sum of two integers. Call the function multiple times with different values, store each returned value in separate variables, and print the results.
+
+```
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+  return a + b;
+}
+
+int main() {
+
+int x = add(3,4);
+int y = add(x,10);
+int z = add(y,x);
+int s = add(add(x,y),10);
+
+cout << x << endl << y << endl << z << endl << s;
+
+}
+```
+
+
+
+---------------------------------------------------------
+
+
+
+
 
 ## pass by value using void code- 
 ```
@@ -4007,6 +4037,64 @@ int main() {
 }
 ```
 Output-  10 
+
+
+
+### pass by value using void demo- 
+prblm stat- Write a void function that accepts an integer by value, changes its value inside the function, and demonstrate that the original variable in main() remains unchanged.
+
+```
+#include <iostream>
+using namespace std;
+
+
+void change(int x) {
+
+    cout << "Inside before: " << x << endl;
+    x = 100;
+    cout << "Inside after : " << x << endl;  
+}
+
+
+int main() {
+
+    int num = 10;
+    cout << "Before function: " << num << endl;
+    change(num);
+    cout << "After function: " << num << endl;
+
+    return 0;
+}
+```
+> Output- 
+Before function 10 
+Inside before 10 
+Inside after 100
+After function 10 
+
+
+
+
+### Quiz of pass by value using void- 
+```
+void change(int x)
+{
+    x = x + 5;
+    cout << x << endl;
+}
+
+int main()
+{
+    int num = 10;
+    change(num);
+    cout << num << endl;
+}
+```
+> Output- 
+15
+10 
+
+
 
 
 ## pass by reference using void code- 

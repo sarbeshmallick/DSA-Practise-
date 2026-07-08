@@ -3,6 +3,9 @@
 
 // Parameterized function using returning functions 
 
+// Prblm stat- Write a parameterized function that returns the sum of two integers. Call the function multiple times with different values, store each returned value in separate variables, and print the results.
+
+
 #include <iostream>
 using namespace std;
 
