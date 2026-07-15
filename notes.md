@@ -4026,6 +4026,7 @@ using namespace std;
 
 void change(int x) {
     x = 100;
+    cout << x << endl;
 }
 
 int main() {
@@ -4036,7 +4037,9 @@ int main() {
     cout << num;
 }
 ```
-Output-  10 
+>Output-  
+100
+10
 
 
 
@@ -4097,26 +4100,66 @@ int main()
 
 
 
-## pass by reference using void code- 
+### pass by value using return function code- 
+Prblm stat- Write a returning function that accepts an integer by value, changes its local copy, returns the modified value, and show that the original variable in main() is unaffected.
+
 ```
 #include <iostream>
 using namespace std;
 
-void change(int &x) {                              // here addition of & makes it reference 
-    x = 100;
+
+int change(int x) {
+  x = 100;
+  return x;
 }
 
 int main() {
-    int num = 10;
 
-    change(num);
+  int num = 10;
 
-    cout << num;
+  cout << change(num) << endl;
+  cout << num;
+
+    return 0;
+
 }
 ```
-Output- 100 
+> Output- 
+100
+10 
 
-- No copy is created, instead x becomes another name for num ,  so both point to same variable 
+
+
+
+### pass by value using return function modified code- 
+Prblm stat- Write a returning function that accepts an integer by value, changes its local copy, returns the modified value, and show that the original variable in main() is unaffected.
+
+```
+#include <iostream>
+using namespace std;
+
+
+int change(int x) {
+  x = 100;
+  return x;
+}
+
+int main() {
+
+  int num = 10;
+  int result = change(num);
+
+  cout << "Returned value: " << result << endl;
+  cout << "Original value: " << num;
+
+    return 0;
+
+}
+```
+> Output- 
+Returned value: 100
+Original value: 10
+
 
 
 
@@ -4177,7 +4220,113 @@ Original variable = 10
 
 
 
+-------------------------------------------------
+
+
+
+
+## pass by reference using void code- 
+```
+#include <iostream>
+using namespace std;
+
+void change(int &x) {                              // here addition of & makes it reference 
+    x = 100;
+}
+
+int main() {
+    int num = 10;
+
+    change(num);
+
+    cout << num;
+}
+```
+Output- 100 
+
+- No copy is created, instead x becomes another name for num ,  so both point to same variable 
+
+
+
+
+
+### pass by reference using void lil modified code-
+Prblm stat- Write a void function that accepts an integer using pass by reference. Modify the value inside the function and print the value in main() after the function call to demonstrate that changes made through the reference affect the original variable.
+
+```
+#include <iostream>
+using namespace std;
+
+void change(int &x) {
+    x = 100;
+    cout << x << endl;
+}
+
+int main() {
+
+    int num = 10;
+    change(num);
+    
+    cout << num;
+}
+```
+> Output-
+100
+100
+
+> note-
+- & is not a pointer
+- here,  &  means create another name for the same variable 
+
+
+
+
+### pass by reference using void quiz- 
+```
+#include <iostream>
+using namespace std;
+
+void change(int &x)
+{
+    cout << "Inside before: " << x << endl;
+
+    x = x + 20;
+
+    cout << "Inside after: " << x << endl;
+}
+
+int main()
+{
+    int num = 15;
+
+    cout << "Main before: " << num << endl;
+
+    change(num);
+
+    cout << "Main after: " << num << endl;
+
+    return 0;
+}
+```
+
+>Output- 
+Main before 15 
+inside before 15 
+Inside after 35 
+Main after 35
+
+
+explanation of & in mnetal mode- ![alt text](images/image-23.png)
+
+
+
+
+
+
 ## pass-by-reference-returning-functions code-
+Write a function that accepts an integer by reference, changes its value inside the function, returns the modified value, and demonstrate that the original variable in main()
+is also changed.
+
 ```
 #include <iostream>
 using namespace std;
@@ -4197,6 +4346,10 @@ cout << num;
   return 0;
 }
 ```
+> Output-
+100
+100
+
 
 ### Observation-
 
@@ -4242,6 +4395,78 @@ Original variable = 100
 ### pass by reference example-
 ![alt text](images/image-7.png)
 ![alt text](images/image-8.png)
+
+
+
+
+
+### Same code as above but modified-
+Write a function that accepts an integer by reference, changes its value inside the function, returns the modified value, and demonstrate that the original variable in main()
+is also changed.
+
+```
+#include <iostream>
+using namespace std;
+
+
+int change(int &x) {
+    x = 100;
+    return x;
+}
+
+
+int main() {
+
+    int num = 10;
+
+    int updatedValue = change(num); 
+
+    cout << "Returned value: " << updatedValue << endl;
+    cout << "Return after function: " << num;
+
+    return 0;
+
+}
+```
+
+
+
+### Quiz- 
+```
+#include <iostream>
+using namespace std;
+
+int update(int &x)
+{
+    x = x + 5;
+    return x;
+}
+
+int main()
+{
+    int num = 10;
+
+    int result = update(num);
+
+    cout << num << endl;
+    cout << result << endl;
+}
+```
+> Output-
+15
+15
+
+
+> Mental model-
+
+int        update       (int &x)
+│             │              │
+│             │              └── How the parameter is received
+│             └────────────────── Function name
+└──────────────────────────────── What the function returns
+
+
+
 
 
 

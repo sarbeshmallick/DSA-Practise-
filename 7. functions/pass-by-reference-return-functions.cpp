@@ -1,6 +1,13 @@
 
 // Pass by reference using returning functions
 
+/* Problem Statement:
+
+Write a function that accepts an integer by reference, changes its value inside the function, returns the modified value, and demonstrate that the original variable in main()
+is also changed.
+
+*/
+
 #include <iostream>
 using namespace std;
 
@@ -41,7 +48,7 @@ x refers to num
 inside function:
 x = 100;
 
-Since x and num are same varibales-
+Since x and num are same variables-
 num = 100
 
 Return:

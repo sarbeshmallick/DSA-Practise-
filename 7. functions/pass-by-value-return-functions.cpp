@@ -1,5 +1,11 @@
 
+
+
 // Pass by value by using returning functions 
+
+// problem stat- Write a returning function that accepts an integer by value, changes its local copy, returns the modified value, and show that the original variable in main() is unaffected.
+
+
 
 #include <iostream>
 using namespace std;
