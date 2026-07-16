@@ -139,6 +139,12 @@ int main() {
 */
 
 
+
+// Prblm Stat- Write a void function that accepts an integer array, changes the first element of the array and demonstrate that the original array in main() is also modified.
+
+
+
+
 #include <iostream>
 using namespace std;
 

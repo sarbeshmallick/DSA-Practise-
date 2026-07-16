@@ -4469,6 +4469,460 @@ int        update       (int &x)
 
 
 
+---------------------------------------------------------------------------
+
+
+
+
+
+
+## Arrays function
+
+when we pass arr to a function  
+1. C++ does not copy the entire array. 
+2. instead, it passes the address of the first element.
+
+
+
+One thing you may not know yet:
+
+int                
+↓
+copy
+
+
+int&
+↓
+reference
+
+
+int arr[]
+↓
+Array parameters automatically behave like pointers.
+
+
+
+1. The function receives the address of the first element,
+    not a copy of the entire array.
+
+2. Therefore changes inside the function affect the original array.
+
+
+
+3. Arrays decay into pointers when passed to functions.
+So the function receives the address of the first element.
+
+4. in array we dont have to write & because it is passing the address of the first element and technically it is pointer 
+
+int arr[]     ->  pointer 
+
+
+
+**Quick test->**
+
+Without running:
+
+```
+void fun(int arr[]) {
+    arr[2] = 50;
+}
+
+int main() {
+
+    int arr[] = {1, 2, 3, 4, 5};
+
+    fun(arr);
+
+    cout << arr[2];
+}
+```
+
+Output-> 50
+
+
+
+
+
+### Arrays- function code- 
+Prblm Stat- Write a void function that accepts an integer array, changes the first element of the array and demonstrate that the original array in main() is also modified.
+
+```
+#include <iostream>
+using namespace std;
+
+void explainPassByValueAndReference(int arr[]) {                        // instead of arr[] we can write *arr   as for arrays we can write * before it 
+    arr[0] = 100;                                                       // for array we don't hv to write & to pass the value cuz its already taking a reference 
+}
+
+int main() {
+
+    int arr[] = {6, 7, 8, 1, 2};
+    explainPassByValueAndReference(arr);                               // It takes memory locations and not copy the data 
+    cout << arr[0];                                                    // Passing the memory locations and not copying 
+                                                                       // the function name is so long, we can make it modifyArray() or updateArray()
+    return 0;
+}
+```
+
+
+> Output-
+100
+
+
+> Note-
+
+void fun(int arr[])    =     void fun(int *arr)
+
+
+In main:
+arr
+
++----+----+----+----+----+
+| 6  | 7  | 8  | 1  | 2  |
++----+----+----+----+----+
+ ^
+ address
+
+
+When you call:
+explainPassByValueAndReference(arr);
+
+the function recieves:
+arr  ->  address of first element
+
+So inside the function, arr points to the same array. It is not another array.
+
+
+when we write:
+arr[0] = 100;
+
+we are changing:
++----+----+----+----+----+
+|100 | 7  | 8  | 1  | 2  |
++----+----+----+----+----+
+
+we are chaning the the same array that exists in main().  So after the function returns, main() still has 100 
+
+
+
+> why & not needed?
+
+int arr[]  is treated as a pointer to the first element when passed to a function.
+That pointer already refers to the original array. So another & isn't needed.
+
+
+> Explanation- 
+
+explainPassByValueAndReference(arr);   does not pass the entire array in c++
+instead it passes Address of first element
+
+Think:
+arr
+Index   Value
+0       6
+1       7
+2       8
+3       1
+4       2
+
+Suppose arr[0] lives at address 1000
+then, 
+explainPassByValueAndReference(arr);    =     explainPassByValueAndReference(1000);
+
+
+Arrays decay into pointers when passed to functions.
+So the function receives the address of the first element.
+
+in array we dont have to write & because it is passing the address of the first element and technically it is pointer 
+
+int arr[]     ->  pointer 
+
+
+
+----------------------------------------------------------------------
+
+
+
+## Few things to Remember- 
+
+we use comma in cpp for different purposes:
+
+
+1. Comma separating variables ✅
+int a = 5, b = 10;
+
+or
+
+int a, b, c;
+
+means,  Create two variables.                                                      Here comma is used as a seperator & not operator 
+
+
+
+2. Comma separating function arguments ✅
+add(2, 3);
+
+means,  Pass two arguments.                                                        comma is seperator 
+
+
+
+3. Comma operator ⚠️
+(5,10)
+
+means,  Evaluate 5, ignore it, return 10.                                         it's operator not seperator 
+
+- the compiler is no longer looking for a separator. It is looking for one expression inside the brackets.
+- arr[ ??? ]  needs one value 
+- arr[0,1]    becomes arr[1]
+
+
+
+
+
+## Note- 
+
+> What is an expression inside []?
+Anything inside square brackets [] is called the index expression.
+
+arr[0]  is simply 0 
+
+but it dosen't have to be a number 
+eg:
+int i = 2;
+cout << arr[i];
+
+here the expression is i which evaluates to 2
+
+So anything that finally becomes an integer can go inside [].
+
+
+[]  ->  Index
+{}  ->  Number 
+
+int arr[] = {5,8,9};       
+0th index is 5, 1st index is 8, 2nd index is 9 
+arr[1] ->  Give me the element stored at index 1. which is 8 
+
+
+
+
+> is it all the time we have integers inside []
+It is not only integer numbers written directly. It is anything that evaluates to an integer value.
+ 
+All these are valid:-    ✔
+
+arr[0]      // integer literal
+arr[5]
+
+int i = 2;
+arr[i]      // variable containing an integer
+
+arr[1 + 2]  // expression -> becomes 3
+
+arr[i + 1]  // expression -> becomes an integer
+
+arr[x * 2]  // expression -> becomes an integer
+
+
+
+All these are not valid:-    ❌
+
+arr[3.5]      // double (not an integer index)
+arr["hello"]  // string
+arr[true]     // technically converts to 1 in C++, but don't use this
+
+
+when we write:
+int i = 2;
+arr[i];
+- it means Go to the index stored in i
+
+
+
+
+
+### array-functions-multi-change code- 
+
+Prblm stat- Write a void function that accepts an integer array, modifies the first two elements of the array, and demonstrate that the changes are reflected in the original array in main().
+
+```
+#include <iostream>
+using namespace std;
+
+void updateArray(int arr[]) {                 
+    arr[0] = 100;   
+    arr[1] = 200;                                             
+}
+
+int main() {
+
+    int arr[] = {6, 7, 8, 1, 2};
+
+    updateArray(arr);  
+
+    cout << arr[0] << endl;
+    cout << arr[1] << endl;
+    cout << arr[2] << " " << arr[3];                                               
+                                                                  
+    return 0;
+}
+```
+
+>Output- 
+
+100
+200
+8 1
+
+> for loop-
+
+instead of:
+cout << arr[0] << endl;
+cout << arr[1] << endl;
+cout << arr[2] << " " << arr[3];
+
+we can use:
+
+for(int i = 0; i < 5; i++)
+{
+    cout << arr[i] << " ";
+}
+
+> Output-
+100 200 8 1 2
+
+
+> Phenomenon-
+when we call:
+updateArray(arr);
+
+function parameter int arr[]  does not recieve a copy of the array.
+Instead, it refers to the same array that exists in main().
+
+Before the call:
+main()
+arr
+
+Index   0  1  2  3  4
+Value   6  7  8  1  2
+
+
+Function is called:
+updateArray(arr)
+
+
+Inside the function:
+arr
+
+Index   0  1  2  3  4
+Value   6  7  8  1  2
+
+There is not another array.
+Both main() and updateArray() are looking at the same memory.
+
+
+So when this happens
+arr[0] = 100;
+the original array changes immediately.
+then, arr[1] = 200; 
+changes the 2nd element too 
+
+When the function finishes, nothing is copied back because nothing was copied in the first place.
+
+
+
+
+### full for loop code version-
+```
+#include <iostream>
+using namespace std;
+
+void changeArray(int arr[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        arr[i] = 100;
+    }
+}
+
+int main()
+{
+    int arr[] = {5,8,3};
+
+    changeArray(arr,3);
+
+    for(int i=0;i<3;i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+```
+
+> Output-
+100 100 100
+
+> Why arr[i] = 100;  ??? 
+
+Suppose  int arr[] = {5,8,3};
+
+Index      0   1   2
+Value      5   8   3
+
+
+Loop:
+for(int i=0;i<3;i++)
+{
+    arr[i]=100;
+}
+
+
+1st iteration:  i=0
+Compiler sees,  
+ arr[i]   which becomes   arr[0]
+So,  
+      arr[0]=100;
+
+Array becomes:
+100 8 3
+
+
+2nd iteration:  i=1
+
+arr[1]=100;
+Array becomes:
+100 100 3 
+
+
+3rd iteration:  i=2
+
+arr[2]=100;
+Array becomes:
+100 100 100 
+
+
+That's why we write  arr[i]
+because i changes, so different elements are modified.
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
