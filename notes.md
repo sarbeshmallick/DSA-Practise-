@@ -4910,13 +4910,466 @@ because i changes, so different elements are modified.
 
 
 
+### Array returning functions code-
+Prblm stat- Write a function that accepts an integer array, modifies the first two elements of the array, returns the first modified element, and demonstrate that both the returned value and the original array in main() are updated.
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
+#include <iostream>
+using namespace std;
+
+int updateArray(int arr[]) {
+
+  arr[0] = 100;
+  arr[1] = 200;
+
+return arr[0];
+       
+}
+
+
+int main() {
+
+  int arr[] = {1,2,3,4,5};
+
+  int x = updateArray(arr); 
+
+  cout << "Returned value: " << x << endl;
+
+  cout << arr[0] << "\n" << arr[1] << "\n" << arr[2] << "\n" << arr[3] << "\n" << arr[4];
+
+  return 0;
+}
+```
+
+> Output- 
+Returned value: 100
+100
+200
+3
+4
+5
+
+- Notice something important. 
+- The return statement did not modify the array. The array had already changed before the return happened. The return simply sends back one value.
 
 
 
 
+> little bit changing how output is represented-
+
+instead of,   cout << arr[0] << "\n" << arr[1] << "\n" << arr[2] << "\n" << arr[3] << "\n" << arr[4];
+Output-
+100
+200
+3
+4
+5
+
+
+we can do,  cout << arr[0] << " " << arr[1] << " "<< arr[2] << " " << arr[3] << " " << arr[4];
+Output-
+100
+100 200 3 4 5 
+
+
+
+### Remember- 
+
+1. Without parentheses in function, you're referring to the function itself, not calling it.
+2. A function name can decay to a function pointer. When streamed with cout, the output is implementation-dependent, and in your environment it ended up displaying 1. That's not the function's return value.
+3. updateArray           means function 
+4. updateArray(arr)      means run the function 
+
+instead of cout << x                  where x = updateArrat(arr) = function call 
+i wrote cout << updateArray ❌
+
+![alt text](images/image-24.png)
+
+
+
+
+
+
+
+
+### Quiz 1-
+```
+#include <iostream>
+
+using namespace std;
+
+
+int updateArray(int arr[])
+{
+    arr[0]++;
+    return arr[0];
+}
+
+int main()
+{
+    int arr[] = {5, 6, 7};
+
+    cout << updateArray(arr) << endl;
+    cout << updateArray(arr) << endl;
+    cout << arr[0];
+}
+```
+
+>Output-
+6
+7
+7
+
+
+
+### function mods crazy-
+
+- A return statement can return any valid expression, not just a variable.
+- we can do anything with return 
+- we can return:-
+ 1. return arr[0] + arr[1];
+ 2. return arr[2] * arr[4];
+ 3. return arr[0] + arr[1] + arr[2] + arr[3] + arr[4];
+ 4. return arr[0] * 10;
+
+- The return statement is simply saying: "Evaluate this expression and give me its result."
+
+"Evaluate this expression and give me its result."
+
+It doesn't care whether the expression is:
+1. one variable,
+2. one array element,
+3. a calculation,
+4. a function call,
+5. or something much more complex.
+
+
+
+
+
+### Quiz 2-
+```
+int updateArray(int arr[])
+{
+    arr[0] = arr[1] + arr[2];
+    return arr[0] + arr[1];
+}
+
+int main()
+{
+    int arr[] = {2,4,6};
+
+    cout << updateArray(arr) << endl;
+    cout << arr[0] << " " << arr[1] << " " << arr[2];
+}
+```
+
+>output-
+14
+10 4 6 
+
+
+
+### Quiz 3-
+```
+int update(int arr[])
+{
+    arr[1] = arr[0] + arr[2];
+    arr[2] = arr[1] + 5;
+
+    return arr[2];
+}
+
+int main()
+{
+    int arr[] = {3, 7, 2};
+
+    cout << update(arr) << endl;
+
+    cout << arr[0] << " "
+         << arr[1] << " "
+         << arr[2];
+}
+```
+
+>Output-
+Output-
+10
+3
+5
+10
+
+
+
+
+
+
+### for loop in array return functions
+
+old code-
+```
+#include <iostream>
+using namespace std;
+
+int updateArray(int arr[]) {
+arr[0] = 100;
+arr[1] = 200;                                                 
+
+return arr[0] + arr[1] + arr[2] + arr[3] + arr[4];                           // we will automate this and we dont hv to write return arr[0] +arr[2] +... manually
+       
+}
+
+int main() {
+
+  int arr[] = {1,2,3,4,5};
+
+  int x = updateArray(arr); 
+
+  cout << "Returned value: " << x << endl;
+  cout << arr[0] << "\n" << arr[1] << "\n" << arr[2] << "\n" << arr[3] << "\n" << arr[4];                      // we are also automating this using loop 
+  
+  return 0;
+}
+```
+
+
+>Loop version-
+
+```
+#include <iostream>
+using namespace std;
+
+int updateArray(int arr[]) {
+
+  arr[0] = 100;
+  arr[1] = 200;
+
+  int sum = 0;
+
+  for (int i = 0; i < 5; i++) {
+    sum = sum + arr[i];
+  }
+
+return sum;
+       
+}
+
+
+int main() {
+
+  int arr[] = {1,2,3,4,5};
+
+  int x = updateArray(arr); 
+
+  cout << "Returned Sum: " << x << endl;
+
+  for (int i = 0; i < 5; i++) {
+    cout << arr[i] << endl;
+  }
+
+  return 0;
+}
+```
+
+>Output-
+Returned Sum: 312
+100
+200
+3
+4
+5
+
+
+
+> Explanation-
+
+1, 2, 3, 4, 5 
+becomes 
+100, 200, 3, 4, 5                       after arr[0] = 100; arr[1] = 200;
+
+
+Now the loop starts:
+
+First iteration:
+i = 0
+sum = 0 + 100 = 100
+
+
+Second iteration:
+i = 1
+sum = 100 + 200 = 300
+
+
+Third iteration:
+i = 2
+sum = 300 + 3 = 303
+
+
+Fourth iteration:
+i = 3
+sum = 303 + 4 = 307
+
+
+Fifth iteration:
+i = 4
+sum = 307 + 5 = 312
+
+Loop ends.
+Function returns 312 
+312 gets printed because      cout << function name  =  cout << x
+cout << "Returned Sum" << x
+
+
+
+> Modifications-
+Noticed we wrote i < 5 everywhere 
+but if the array size increases in future we will hv to update 5 from everywhere 
+better we use array size which will pass the size to function 
+
+code-
+```
+#include <iostream>
+using namespace std;
+
+int updateArray(int arr[], int size) {
+
+  arr[0] = 100;
+  arr[1] = 200;
+
+  int sum = 0;
+
+  for (int i = 0; i < size; i++) {
+    sum = sum + arr[i];
+  }
+
+return sum;
+       
+}
+
+
+int main() {
+
+  int arr[] = {1,2,3,4,5};
+
+  int size = 5;
+
+  int x = updateArray(arr, size); 
+
+  cout << "Returned Sum: " << x << endl;
+
+  for (int i = 0; i < size; i++) {
+    cout << arr[i] << endl;
+  }
+
+  return 0;
+}
+```
+
+
+
+
+
+
+### Quiz 3-
+Problem Statement: Write a void function that accepts an integer array, uses a loop to update the first three elements of the array to 100, demonstrates that the original array inmain() is modified, and prints the updated array.
+
+```
+#include <iostream>
+using namespace std;
+
+void updateArray(int arr[])
+{
+    for(int i = 0; i < 3; i++)
+    {
+        arr[i] = 100;
+    }
+}
+
+int main()
+{
+    int arr[] = {6,7,8,1,2};
+
+    updateArray(arr);
+
+    for(int i = 0; i < 5; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+```
+
+>Output-
+100 100 100 1 2
+
+
+> Understanding-
+Initially
+
+Index : 0  1  2  3  4
+Value : 6  7  8  1  2
+
+First iteration:
+i = 0
+Compiler executes:
+arr[i] = 100;
+
+becomes
+arr[0] = 100;
+
+Array:
+100 7 8 1 2
+
+
+Second iteration:
+i = 1
+Compiler executes:
+arr[1] = 100;
+
+Array:
+100 100 8 1 2
+
+
+Third iteration:
+i = 2
+Compiler executes:
+arr[2] = 100;
+
+Array:
+100 100 100 1 2
+
+
+Loop ends because
+i = 3
+and
+3 < 3  is false.
+
+
+
+Why write 
+arr[i] = 100;
+
+instead of
+
+arr[0] = 100;
+arr[1] = 100;
+arr[2] = 100;
+
+Because the loop changes which index is being accessed each time.
+
+Think of i as a moving finger.
+arr[i] = 100;
+never changes.
+Only the value of i changes.
+
+
+
+
+
+### Quiz 4-
+Every element should become twice of its original value 
 
 
 
@@ -4925,6 +5378,7 @@ because i changes, so different elements are modified.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
