@@ -5305,13 +5305,14 @@ int main()
 100 100 100 1 2
 
 
+
 > Understanding-
 Initially
 
 Index : 0  1  2  3  4
 Value : 6  7  8  1  2
 
-First iteration:
+**First iteration:**
 i = 0
 Compiler executes:
 arr[i] = 100;
@@ -5323,7 +5324,8 @@ Array:
 100 7 8 1 2
 
 
-Second iteration:
+
+**Second iteration:**
 i = 1
 Compiler executes:
 arr[1] = 100;
@@ -5332,7 +5334,8 @@ Array:
 100 100 8 1 2
 
 
-Third iteration:
+
+**Third iteration:**
 i = 2
 Compiler executes:
 arr[2] = 100;
@@ -5369,15 +5372,542 @@ Only the value of i changes.
 
 
 ### Quiz 4-
-Every element should become twice of its original value 
+Prblm stat- Every element should become twice of its original value like array 1,2,3,4,5 should become array 2,4,6,8,10
+
+ 1 2 3 4 5  ->  2 4 6 8 10
+
+Prblm stat- Write a void function named doubleArray() that accepts an integer array.
+Use a for loop to visit every element of the array and double its value.
+Demonstrate that the original array in main() is modified by printing
+the updated array after calling the function.
+
+
+```
+#include <iostream>
+using namespace std;
+
+
+void doubleArray(int arr[]) {
+
+  for(int i = 0; i < 5; i++) {
+    arr[i] =  arr[i] * 2;
+  }
+
+}
+
+
+int main() {
+
+  int arr[] = {1,2,3,4,5};
+
+  doubleArray(arr);
+
+  for(int i = 0; i < 5; i++) {
+    cout << arr[i] << endl;
+  }
+
+    return 0;
+
+}
+```
+>Output-
+2
+4
+6
+8
+10
+
+
+>Phenomenon-
+
+What is the purpose of a for loop?
+A for loop is used when we want to perform the same operation repeatedly.
+
+Instead of writing:
+arr[0] = arr[0] * 2;
+arr[1] = arr[1] * 2;
+arr[2] = arr[2] * 2;
+arr[3] = arr[3] * 2;
+arr[4] = arr[4] * 2;
+
+
+we write:
+for(int i = 0; i < 5; i++)
+{
+    arr[i] = arr[i] * 2;
+}
+
+The loop performs the same operation on every element automatically.
+
+
+### understanding i 
+
+The variable i is not the value inside the array. It is the index (position) of the element currently being visited.
+
+i tells which box i am looking at 
+
+
+
+### understanding arr[i]
+
+arr[i] means  "Access the value stored at index i."
+
+for eg:
+when   i = 2;
+then   arr[i] becomes arr[2]  which is 3     in  {1,2,3,4,5}
+
+arr[i] tells what's the value inside the box.
+
+
+> Example-
+Think of an apartment building.
+
+Apartment Number (Index)
+
+0
+1
+2
+3
+4
+
+Inside each apartment lives a number.
+
+0 -> 1
+1 -> 2
+2 -> 3
+3 -> 4
+4 -> 5
+
+i  moves between apartments.
+
+arr[i] is the person living inside.
+
+
+i mistakenly wrote earlier-
+void doubleArray(int arr[]) 
+{
+  for (int i = 0; i < 5; i = i * 2)
+}
+
+- This will be an infinite loop because 
+  initially i = 0  then  i=i*2  becomes 0 = 0*2 = 0 
+  so i = 0 forever , the condition is always true. So the loop never ends 
+
+- when i wrote i = i * 2;
+  I moved the apartment number.
+  But the challenge wanted you to change the people living inside the apartments.
+  So the correct line is
+arr[i] = arr[i] * 2;
+
+
+
+
+
+### why we write arr[i] = arr[i] * 2;
+
+1. the left side 
+   arr[i] tells the computer store the new value back into this position.
+
+2. the right side 
+   arr[i] * 2 tells the computer Take the current value and multiply it by 2.
+
+
+
+> Dry Run-
+
+Initially:
+Index : 0  1  2  3  4
+Value : 1  2  3  4  5
+
+
+**Iteration 1:**
+i = 0
+arr[0] = 1 × 2
+
+Array:
+2 2 3 4 5
+
+
+
+**Iteration 2:**
+i = 1
+
+arr[1] = 2 × 2
+
+Array:
+2 4 3 4 5
+
+
+
+**iteration 3:**
+i = 2
+
+arr[2] = 3 × 2
+
+Array:
+2 4 6 4 5
+
+
+
+**Iteration 4:**
+i = 3
+
+arr[3] = 4 × 2
+
+Array:
+2 4 6 8 5
+
+
+
+**Iteration 5:**
+i = 4
+
+arr[4] = 5 × 2
+
+Array:
+2 4 6 8 10
+
+
+
+
+> Pattern- 
+
+1. The loop itself almost never changes.
+for(int i = 0; i < size; i++)
+
+2. What changes is only the operation inside the loop.
+  Eg:-
+
+  Double-
+arr[i] = arr[i] * 2;
+
+
+Square-
+arr[i] = arr[i] * arr[i];
+
+
+Make every element 100-
+arr[i] = 100;
+
+
+Add 10-
+arr[i] = arr[i] + 10;
+
+
+Subtract 5-
+arr[i] = arr[i] - 5;
+
+
+- The loop is exactly the same. Only the operation changes.
+- The only thing that changes is what you do to each element inside the loop.
+
+
+
+
+
+### Mental trick-
+
+whenever we write-    for(int i = 0; i < size; i++)
+
+ask yourself these two questions:
+
+1. Question 1:
+
+What is i supposed to do?
+Answer:
+Visit each index.
+
+
+2. Question 2:
+What should happen to arr[i]?
+
+Answer:
+Maybe
+
+double it
+square it
+make it 100
+print it
+sum it
+
+The operation changes.
+The loop almost never changes.
+
+
+
+
+> Some pattern-
+
+1. Make every element 100
+for(int i = 0; i < size; i++)
+{
+    arr[i] = 100;
+}
+
+
+
+2. Double every element
+for(int i = 0; i < size; i++)
+{
+    arr[i] = arr[i] * 2;
+}
+
+
+
+3. Square every element
+for(int i = 0; i < size; i++)
+{
+    arr[i] = arr[i] * arr[i];
+}
+
+
+
+
+### Mental Model-  
+
+Imagine the array is a row of lockers.
+
+Locker Number (Index)
+
+0   1   2   3   4
+
+
+Inside the lockers are numbers:
+0 → 1
+1 → 2
+2 → 3
+3 → 4
+4 → 5
+
+
+- The loop says: "Walk to every locker."
+That's the job of i++
+
+- Then, when you reach a locker, do something with what's inside.
+For this program, that "something" is:
+
+arr[i] = arr[i] * 2;
+
+So the loop is like a worker walking down the lockers:
+Walk to Locker 0 → Double the value
+
+Walk to Locker 1 → Double the value
+
+Walk to Locker 2 → Double the value
+
+Walk to Locker 3 → Double the value
+
+Walk to Locker 4 → Double the value
+
+
+
+
+-------------------------------------------
+
+
+
+
+### Array-transformation- 
+
+Problem Statement:
+
+// Write a void function named transformArray() that accepts an integer array.
+// Use a for loop to visit every element of the array.
+
+// If the element is even, multiply it by 2.
+// If the element is odd, multiply it by 3.
+
+// Demonstrate that the original array in main() is modified
+// by printing the updated array after calling the function.
+
+```
+#include <iostream>
+using namespace std;
+
+
+void transformArray(int arr[]) {
+
+  for (int i = 0; i < 6; i++) {
+
+    if (arr[i] % 2 == 0) {
+      arr[i] = arr[i] * 2;
+     }
+  
+  else {
+      arr[i] = arr[i] * 3;
+    }
+
+  }
+}
+
+int main() {
+
+  int arr[] = {2, 5, 8, 3, 10, 7};
+
+  transformArray(arr);
+
+  for (int i = 0; i < 6; i++) {
+    cout << arr[i] << " ";
+  }
+
+    return 0;
+}
+```
+
+>Output-
+4 15 16 9 20 21 
+
+
+> Pattern-
+many programmer follow this pattern-
+
+for(...)
+{
+    if(...)
+    {
+        // do something
+    }
+    else
+    {
+        // do something else
+    }
+}
+
+
+
+> SOP- 
+A small rule that will help you a lot
+
+Whenever you solve an array problem, ask yourself these questions in order:
+
+1. Am I visiting every element?
+If yes →
+
+for(...)
+
+
+2. Do I need to treat every element the same?
+If yes →
+
+for(...)
+{
+    // operation
+}
+
+Example:
+arr[i] *= 2;
+
+
+3. Do I need to decide what to do based on each element?
+If yes →
+
+for(...)
+{
+    if(...)
+    {
+        // operation A
+    }
+    else
+    {
+        // operation B
+    }
+}
+
+
+
+> Mental model-
+Here's a mental model that might stick
+
+Imagine you're checking students entering a classroom.
+
+Student 1
+Student 2
+Student 3
+Student 4
+
+The for loop is you walking past each student.
+
+When you reach one student, you ask:
+
+"Are you wearing a blue shirt?"
+
+That's the if.
+
+If the answer is yes, you hand them a blue card.
+
+If the answer is no, you hand them a red card.
+
+You don't walk around the whole classroom again just because one student was wearing blue.
 
 
 
 
 
 
+### Array-transformation-size code-
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+```
+#include <iostream>
+using namespace std;
+
+void transformArray(int arr[], int size) {
+  
+  for (int i = 0; i < size; i++) {
+
+    if (arr[i] % 2 == 0) {
+      arr[i] = arr[i] * 2;
+    }
+
+    else {
+      arr[i] = arr[i] * 3;
+    }
+
+  }
+
+}
+
+int main() {
+
+  int arr[] = {2, 5, 8, 3, 10, 7};
+  int size = 6;
+
+  transformArray(arr, size);
+
+  for (int i = 0; i < size; i++) {
+    cout << arr[i] << " ";
+  }
+    return 0;
+}
+```
+
+>Output-
+4 15 16 9 20 21 
+
+
+> note-
+right now i wrote:
+int size = 6
+
+later:
+int size = sizeof(arr) / sizeof(arr[0]);
+
+
+Suppose:
+int arr[] = {2,5,8,3,10,7};
+
+Each int usually takes 4 bytes.
+So, 6 elements × 4 bytes = 24 bytes
+
+Therefore, sizeof(arr)    returns 24 
+and,       sizeof(arr[0]) returns 4 
+
+then, 24 / 4 = 6 
+So, size becomes 6 automatically.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
