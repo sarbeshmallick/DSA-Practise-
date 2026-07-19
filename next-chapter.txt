@@ -1,0 +1,60 @@
+
+I should focus on-
+
+
+1. Time complexity 
+- dont just memorize 
+O(n)
+O(log n)
+O(n²)
+- Understand why.
+
+
+2. Basic Searching
+Examples-
+
+Find the largest element
+Find the smallest element
+Count even numbers
+Count odd numbers
+Linear Search
+
+You'll notice something interesting:
+Every one of these uses the exact same loop you've been practicing. Only the logic inside changes.
+
+
+
+3. Basic Maths
+Things like:
+
+Reverse Number
+Palindrome Number
+Armstrong Number
+GCD
+Divisors
+
+
+
+4. Recursion 
+
+
+
+
+### Advices while doing DSA-
+
+Step1:- Write 
+
+Input
+↓
+What should happen?
+↓
+Expected Output
+
+
+Step2:
+Dry run it on paper.
+
+
+Step3:
+Then write code.
+

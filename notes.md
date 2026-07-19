@@ -5905,6 +5905,67 @@ then, 24 / 4 = 6
 So, size becomes 6 automatically.
 
 
+
+
+
+
+
+### Last quiz- 
+Convert  5 10 15 20  to  25 100 225 400 array 
+
+```
+#include <iostream>
+using namespace std;
+
+void transformArray(int arr[], int size) {
+
+  for (int i = 0; i < size; i++)  {
+
+    arr[i] = arr[i] * arr[i];
+  }
+}
+
+
+int main() {
+
+  int arr[] = {5, 10, 15, 20};
+  int size = 4;
+
+  transformArray(arr, size);
+
+  for(int i = 0; i < size; i++) {
+    cout << arr[i] << " ";
+  }
+
+    return 0;
+}
+```
+
+
+
+
+### Last final note before close this section-
+
+A for loop's job is to visit each element one by one. 
+The real problem-solving happens inside the loop, where you decide what operation to perform on the current element (arr[i]).
+
+That idea will stay true when you learn:
+1. Searching
+2. Sorting
+3. Strings
+4. Vectors
+5. Hashing
+6. Even Graphs and Dynamic Programming
+
+The syntax will change, but the mindset won't.
+
+
+
+
+
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
