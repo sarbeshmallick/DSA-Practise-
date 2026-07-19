@@ -178,6 +178,17 @@ Time & space complexity
 What you learned
 
 
+
+
+Pick 5 "Easy" LeetCode problems (e.g., Two Sum, Palindrome Number, Valid Parentheses, Merge Sorted Array, Plus One).
+Solve them in your sandbox/ folder. If you get stuck, look at the solution, understand it, and then re-write it from memory the next day.
+
+You are past the "learning syntax" phase. You are now in the "learning algorithms & logic" phase. Good luck—you've built the perfect foundation for it! Let me know if you need help with those first few LeetCode problems.
+
+
+
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -199,3 +210,18 @@ Learn 2D Arrays (matrix problems).
 Start basic problem-solving platforms:
 Striver's A2Z Sheet (beginner friendly).
 Or LeetCode "Array" tag (Easy).
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Claude- 
+
+
+Vectors (std::vector) — the dynamic-size, safer alternative to raw arrays. This is genuinely important because virtually all real C++ and competitive-programming code uses vectors, not raw arrays.
+2D arrays / matrices — natural extension of what you just learned.
+Basic pointers (you've already touched the concept implicitly through array decay — formalizing it will click fast).
+Structures, then a light intro to classes/OOP.
+Recursion — conceptually the biggest jump in this whole track, and worth its own dedicated stretch of dry-runs the way you did for loops/arrays.
+
